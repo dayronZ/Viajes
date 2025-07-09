@@ -49,22 +49,5 @@ section {
   justify-content: center;
   font-size: 2rem;
   color: #fff;
-  background-color: #333;
-}
-
-#hero {
-  background-color: #007bff;
-}
-
-#about {
-  background-color: #28a745;
-}
-
-#services {
-  background-color: #ffc107;
-  color: #333;
-}
-
-#contact {
-  background-color: #dc3545;
+  background-color: #e9dfdf;
 }
