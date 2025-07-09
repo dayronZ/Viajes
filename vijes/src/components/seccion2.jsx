@@ -19,8 +19,8 @@ const countryDetails = {
   },
   Italia: {
     title: 'Italia',
-    image: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=400&q=80',
-    description: 'Italia es la cuna del arte y la historia europea. Destacan Roma, Venecia, Florencia y su exquisita cocina.'
+    image: '/src/assets/italia.jpg',
+    description: 'Italia es un país lleno de historia, arte y belleza natural. Entre sus principales atractivos están los restos de la Antigua Roma, el arte del Renacimiento y la arquitectura barroca. Su gastronomía es reconocida mundialmente por platos como la pizza, la pasta y sus excelentes vinos. Ofrece paisajes variados como la costa Amalfitana, los lagos del norte y los Alpes. Sus ciudades más destacadas son Roma, Florencia y Venecia, todas con un gran valor cultural. Además, Italia celebra festivales emblemáticos como el Carnaval de Venecia y la Fiesta de la República.'
   }
 };
 
