@@ -24,6 +24,15 @@
   text-align: center;
 }
 
+.seccion6-subtitle2{
+  color: #222;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
 .seccion6-body {
   font-size: 1.1rem;
   color: #666;
