@@ -14,8 +14,8 @@ const countryDetails = {
   },
   Paris: {
     title: 'París',
-    image: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80',
-    description: 'París, la ciudad del amor, es famosa por la Torre Eiffel, el Louvre, la gastronomía y su ambiente romántico.'
+    image: '/src/assets/paris.jpeg',
+    description: 'París, conocida como la Ciudad de la Luz, es un destino cultural y romántico por excelencia. Sus monumentos icónicos incluyen la Torre Eiffel, Notre-Dame y el Arco de Triunfo. Es un centro de arte con museos como el Louvre y el Museo de Orsay, y una destacada vida cultural en lugares como la Ópera Garnier. La gastronomía parisina es refinada, con cafés, bistrós y mercados tradicionales. Sus barrios, como Montmartre, Le Marais y Champs-Élysées, ofrecen experiencias únicas. Además, París celebra eventos todo el año, como la Fiesta de la Música, la Noche Blanca y la Navidad.'
   },
   Italia: {
     title: 'Italia',
