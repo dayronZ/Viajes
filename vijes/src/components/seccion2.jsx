@@ -9,7 +9,7 @@ const countryDetails = {
   },
   Japón: {
     title: 'Japón',
-    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80',
+    image: '/src/assets/japon.jpg',
     description: 'Japón es un país con una rica cultura, historia milenaria y paisajes impresionantes. Destacan sus tradiciones como la ceremonia del té, su arquitectura con templos y santuarios, y una gastronomía reconocida mundialmente. Entre sus paisajes naturales figuran el Monte Fuji, jardines tradicionales e islas paradisíacas como Okinawa. Las ciudades como Tokio, Kioto y Osaka combinan modernidad con tradición. Japón también es líder en tecnología e innovación, con lugares como Akihabara. A lo largo del año, se celebran festivales importantes como el Hanami, el Obon y el Año Nuevo japonés.'
   },
   Paris: {
