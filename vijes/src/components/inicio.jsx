@@ -1,5 +1,6 @@
 const Navbar = () => {
   return (
+<<<<<<< HEAD
     <nav className="navbar">
       <link rel="stylesheet" href="./nav.css" />
       <input type="checkbox" id="menu-toggle" className="menu-toggle" />
@@ -13,6 +14,23 @@ const Navbar = () => {
         <li><a href="#seccion5">Blogs</a></li>
         <li><a href="#seccion6">Costos</a></li>
         <li><a href="#seccion7">Contactanos</a></li>
+=======
+    <nav className="fixed top-0 w-full bg-white shadow z-50">
+      <ul className="flex justify-around p-4">
+        <li>
+          <a href="#seccion1" className="hover:text-blue-500">Inicio</a>
+        </li>
+        <li>
+          <a href="#seccion2" className="hover:text-blue-500">seccion2</a>
+        </li>
+        <li>
+          <a href="#seccion6" className="hover:text-blue-500">seccion6</a>
+        </li>
+        <li>
+          <a href="#seccion7" className="hover:text-blue-500">seccion7</a>
+        </li>
+        
+>>>>>>> 0de944e0bbefbe21a7ac641f5766305cb8cf5c55
       </ul>
     </nav>
   );

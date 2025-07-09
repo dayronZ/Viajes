@@ -11,3 +11,31 @@ body {
 
 
 
+<<<<<<< HEAD
+=======
+nav ul li {
+  margin: 0 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #007bff;
+}
+
+/* Estilo para las secciones */
+section {
+  min-height: 100vh;
+  padding: 100px 20px 20px 20px; /* Espacio arriba para que no lo tape el nav */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #fff;
+  background-color: #e9dfdf;
+}
+>>>>>>> 0de944e0bbefbe21a7ac641f5766305cb8cf5c55
