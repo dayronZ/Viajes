@@ -82,7 +82,7 @@ const Seccion2 = () => {
               alt={countryDetails[selectedCountry].title} 
               style={{
                 width: '100%',
-                maxHeight: '200px',
+                maxHeight: '300px',
                 objectFit: 'cover',
                 borderRadius: '8px',
                 marginBottom: '16px'
