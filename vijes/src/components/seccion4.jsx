@@ -3,7 +3,16 @@ import Img_portfolio from "./img_portfolio";
 
 const Seccion4 = () => {
   return (
-    <section id="seccion4" className="h-screen flex items-center justify-center bg-pink-100">
+  
+    <section className="portfolio-section" id="seccion4">
+      <h2 className="portfolio-title">Our trips</h2>
+      <div class="portfolio-filters">
+        <span class="filter">France</span>
+        <span class="filter">England</span>
+        <span class="filter">Switzerland</span>
+        <span class="filter">Germany</span>
+        <span class="filter">Italy</span>
+      </div>
       <Gallery_portfolio/>
     </section>
   );
