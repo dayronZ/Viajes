@@ -5,13 +5,23 @@ import './index.css'
 import Navbar from './components/inicio.jsx'
 import Seccion1 from './components/seccion1.jsx'
 import Seccion2 from './components/seccion2.jsx'
+import Seccion6 from './components/seccion6.jsx'
+import Seccion7 from './components/Seccion7.jsx'
 
-
+const App = () => {
+  return (
+    <>
+      <Navbar/>
+      <Seccion1/>
+      <Seccion2/>
+      <Seccion6/>
+      <Seccion7/>
+    </>
+  )
+}
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Navbar/>
-    <Seccion1/>
-    <Seccion2/>
+    <App />
   </StrictMode>,
 )
