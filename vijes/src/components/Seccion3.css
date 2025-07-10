@@ -1,55 +1,44 @@
 .oferta-section {
   background-color: #1a1a1a;
   color: white;
-  padding: 80px 20px;
-  position: relative;
+  
 }
 
 .oferta-content {
   max-width: 1200px;
   margin: auto;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  gap: 30px;
 }
 
 .oferta-left {
   flex: 1;
   min-width: 300px;
-  position: relative;
-  z-index: 2;
-}
-
-.oferta-number {
-  font-size: 160px;
-  color: #00ff88;
-  font-weight: bold;
-  display: block;
-  margin-bottom: -20px;
-  line-height: 1;
 }
 
 .oferta-left h2 {
-  font-size: 28px;
+  font-size: 36px;
   font-weight: 700;
-  margin: 20px 0 10px;
+  margin-bottom: 20px;
 }
 
 .oferta-left p {
-  font-size: 16px;
-  margin-bottom: 20px;
+  font-size: 18px;
+  margin-bottom: 16px;
   color: #ccc;
 }
 
 .oferta-buttons {
   display: flex;
   gap: 15px;
+  margin-top: 20px;
 }
 
 .btn-discover,
 .btn-purchase {
-  padding: 12px 24px;
+  padding: 14px 28px;
   font-weight: bold;
   border: none;
   cursor: pointer;
@@ -78,36 +67,43 @@
 .oferta-images {
   flex: 1;
   position: relative;
-  min-width: 300px;
+  height: 480px; /* Más alto para acomodar mejor */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .img {
-  width: 200px;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
   position: absolute;
+  width: 360px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
 }
 
-.img1 {
-  top: -40px;
-  left: 0;
-  z-index: 3;
-}
-
+/* Imagen central (al frente) */
 .img2 {
-  top: 40px;
-  left: 100px;
-  z-index: 2;
+  z-index: 3;
+  top: 100px;
+  left: 120px;
 }
 
-.img3 {
-  top: 80px;
-  left: 180px;
-  z-index: 1;
+/* Imagen superior izquierda */
+.img1 {
+  z-index: 2;
+  top: 30px;
+  left: 0px;
 }
+
+/* Imagen inferior derecha */
+.img3 {
+  z-index: 1;
+  top: 180px;
+  left: 240px;
+}
+
 
 @media (max-width: 768px) {
   .oferta-content {
@@ -116,14 +112,14 @@
   }
 
   .oferta-images {
+    height: auto;
     margin-top: 40px;
-    height: 300px;
   }
 
   .img {
     position: relative;
-    top: auto;
-    left: auto;
-    margin: 0 10px;
+    width: 80%;
+    height: auto;
+    margin: 10px;
   }
 }
