@@ -1,10 +1,13 @@
 /* Estilo global para el scroll suave */
 html {
+  margin: 0;
+  padding: 0;
   scroll-behavior: smooth;
   scroll-padding-top: 60px; /* Ajusta si el navbar tapa parte del contenido */
 }
 
 body {
+  padding: 0;
   margin: 0;
   font-family: sans-serif;
 }
@@ -41,40 +44,68 @@ nav ul li a:hover {
 }
 
 /* Estilo para las secciones */
-section {
-  min-height: 100vh;
-  padding: 100px 20px 20px 20px; /* Espacio arriba para que no lo tape el nav */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-}
 
 #seccion4 {
-  background-color: #ffffff;
+  min-height: 100vh;
+  width: 100%;
+  padding: 80px 20px;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+  text-align: center;
 
 }
 
+
 #seccion5 {
+  width: 100%;
   background-color: #99c68e;
+  box-sizing: border-box;
+  padding: 80px 20px;
+
   
 }
 
+
 /* Estilo de galeria de fotos del portafolio */
-div.gallery {
-  margin: 5px;
-  border: 1px solid #ccc;
-  float: left;
-  width: 180px;
+.portfolio-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 60px;
+  text-transform: uppercase;
 }
 
-div.gallery:hover {
-  border: 1px solid #777;
+.portfolio-filters {
+  margin-bottom: 60px;
 }
 
-div.gallery img {
+.portfolio-filters .filter {
+  display: inline-block;
+  margin: 0 10px;
+  color: #666;
+  font-size: 14px;
+  cursor: pointer;
+  position: relative;
+}
+
+.portfolio-filters .filter:hover {
+  color: #000;
+  font-weight: bold;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.portfolio-grid img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1)
 }
 
 
