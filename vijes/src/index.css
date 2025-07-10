@@ -35,7 +35,56 @@ section {
   align-items: center;
   justify-content: center;
   font-size: 2rem;
+<<<<<<< HEAD
   color: #fff;
   background-color: #e9dfdf;
+=======
+}
+
+#seccion4 {
+  background-color: #ffffff;
+
+}
+
+#seccion5 {
+  background-color: #99c68e;
+  
+}
+
+/* Estilo de galeria de fotos del portafolio */
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+#hero {
+  background-color: #007bff;
+}
+
+#about {
+  background-color: #28a745;
+}
+
+#services {
+  background-color: #ffc107;
+  color: #333;
+}
+
+#contact {
+  background-color: #dc3545;
+>>>>>>> 26c8b5920560fce09a5fe305b80b38e662fdb394
 }
 >>>>>>> 0de944e0bbefbe21a7ac641f5766305cb8cf5c55
