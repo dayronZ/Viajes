@@ -10,13 +10,16 @@ const Seccion7 = () => {
 
         <form className="contact-form">
           <div className="contact-row">
-            <input type="text" placeholder="Your name..." className="contact-input" />
-            <input type="email" placeholder="Your email..." className="contact-input" />
+            <input type="text" placeholder="Tu nombre..." className="contact-input" />
+            <input type="email" placeholder="Tu email..." className="contact-input" />
           </div>
-          <textarea placeholder="Your message..." className="contact-textarea"></textarea>
-          <button type="submit" className="contact-btn">SEND MESSAGE</button>
+          
+          <input type="text" placeholder="¿A qué lugar deseas viajar?" className="contact-input" />
+          
+          <textarea placeholder="Tu mensaje..." className="contact-textarea"></textarea>
+          <button type="submit" className="contact-btn">Enviar</button>
         </form>
-        
+
       </div>
     </section>
   );
