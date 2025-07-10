@@ -1,0 +1,129 @@
+.oferta-section {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 80px 20px;
+  position: relative;
+}
+
+.oferta-content {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.oferta-left {
+  flex: 1;
+  min-width: 300px;
+  position: relative;
+  z-index: 2;
+}
+
+.oferta-number {
+  font-size: 160px;
+  color: #00ff88;
+  font-weight: bold;
+  display: block;
+  margin-bottom: -20px;
+  line-height: 1;
+}
+
+.oferta-left h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 20px 0 10px;
+}
+
+.oferta-left p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+.oferta-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-discover,
+.btn-purchase {
+  padding: 12px 24px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.btn-discover {
+  background-color: #fff;
+  color: #000;
+}
+
+.btn-discover:hover {
+  background-color: #e5e5e5;
+}
+
+.btn-purchase {
+  background-color: #8af57c;
+  color: #000;
+}
+
+.btn-purchase:hover {
+  background-color: #70dd66;
+}
+
+.oferta-images {
+  flex: 1;
+  position: relative;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img {
+  width: 200px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  position: absolute;
+}
+
+.img1 {
+  top: -40px;
+  left: 0;
+  z-index: 3;
+}
+
+.img2 {
+  top: 40px;
+  left: 100px;
+  z-index: 2;
+}
+
+.img3 {
+  top: 80px;
+  left: 180px;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .oferta-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .oferta-images {
+    margin-top: 40px;
+    height: 300px;
+  }
+
+  .img {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0 10px;
+  }
+}
