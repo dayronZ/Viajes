@@ -12,22 +12,6 @@ body {
   font-family: sans-serif;
 }
 
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  z-index: 1000;
-}
-
-nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  padding: 10px 0;
-  margin: 0;
-}
 
 nav ul li {
   margin: 0 20px;
@@ -44,6 +28,20 @@ nav ul li a:hover {
 }
 
 /* Estilo para las secciones */
+
+section {
+  min-height: 100vh;
+  padding: 100px 20px 20px 20px; /* Espacio arriba para que no lo tape el nav */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+
+  color: #fff;
+  background-color: #e9dfdf;
+
+}
+
 
 #seccion4 {
   min-height: 100vh;
@@ -278,4 +276,5 @@ nav ul li a:hover {
 
 #contact {
   background-color: #dc3545;
+
 }
