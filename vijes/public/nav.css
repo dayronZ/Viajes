@@ -2,13 +2,51 @@
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: rgba(128, 128, 128, 0.5);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
   z-index: 1000;
-  padding: 6px 16px;
+  padding: 15px 30px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
+  transition: all 0.3s ease;
+}
+
+.navbar-light {
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.navbar-dark {
+  background-color: transparent;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding-left: -10%;
+}
+
+.navbar-title {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.navbar-light .navbar-title {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.navbar-dark .navbar-title {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .menu {
@@ -38,6 +76,24 @@
   background-color: rgba(255, 255, 255, 0.2);
 }
 
+.navbar-light .menu li a {
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.navbar-light .menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.navbar-dark .menu li a {
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-dark .menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
 .menu-toggle {
   display: none;
 }
@@ -52,16 +108,28 @@
 @media (max-width: 768px) {
   .navbar {
     justify-content: space-between;
+    padding: 15px 20px;
+  }
+
+  .navbar-content {
+    padding-left: 0;
+    justify-content: space-between;
+  }
+
+  .navbar-title {
+    font-size: 1.4rem;
   }
 
   .menu {
     flex-direction: column;
     align-items: center;
-    background: rgba(128, 128, 128, 0.5);
+    background: rgba(0, 0, 0, 0.8);
     position: absolute;
-    top: 50px;
-    left: 0;
-    width: 100%;
+    top: 60px;
+    right: 20px;
+    width: auto;
+    min-width: 200px;
+    border-radius: 8px;
     overflow: hidden;
     max-height: 0;
     opacity: 0;
