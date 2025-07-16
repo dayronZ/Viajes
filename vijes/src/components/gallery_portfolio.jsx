@@ -1,38 +1,41 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Img_portfolio from './img_portfolio'
 
-const Gallery_portfolio = () => {
-  return (
-    <div>
+const Gallery_portfolio = ({pais}) => {
+  const [imagenes, setimagenes] = useState([]);
+
+  useEffect(() => {
+    const nuevasImagenes = [];
+    for (let i = 1; i<=8; i++){
+
+      let nombrePais = pais.toLowerCase();
+
       
-        <div class="gallery">
-        <a target="_blank" href="src/assets/france/img_fr1.png">
-            <Img_portfolio source= "src/assets/france/img_fr1.png"/>
-        </a>
-        </div>
+      let prefix = "";
+      if (nombrePais === "france") {
+        prefix = "img_fr" + i;
+      } else if (nombrePais === "england") {
+        prefix = "img_eng0" + i;
+      } else if (nombrePais === "germany") {
+        prefix = "img_ger0" + i;
+      } else if (nombrePais === "italy") {
+        prefix = "img_it0" + i;
+      } else if (nombrePais === "switzerland") {
+        prefix = "img_swi0" + i;
+      }
 
-        <div class="gallery">
-        <a target="_blank" href="src/assets/france/img_fr2.jpeg">
-            <Img_portfolio source= "src/assets/france/img_fr2.jpeg"/>
-        </a>
-        
-        </div>
 
-        <div class="gallery">
-        <a target="_blank" href="src/assets/france/img_fr3.jpeg">
-            <Img_portfolio source= "src/assets/france/img_fr3.jpeg"/>
-        </a>
+      nuevasImagenes.push(`/img/${nombrePais}/${prefix}.jpg`);
 
-        </div>
 
-        <div class="gallery">
-        <a target="_blank" href="src/assets/france/img_fr4.jpeg">
-            <Img_portfolio source= "src/assets/france/img_fr4.jpeg"/>
-        </a>
-        
-        </div>
-
-        
+    }
+    setimagenes(nuevasImagenes);
+  }, [pais]);
+  return (
+    <div className='portfolio-grid'>
+      {imagenes.map((src, idx) => (
+        <Img_portfolio key={idx} source = {src} />
+      ))}
     </div>
   )
 }
