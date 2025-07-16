@@ -13,16 +13,44 @@ const SetMapView = ({ coords }) => {
 };
 
 const Seccion7 = () => {
-  const [location, setLocation] = useState([19.4326, -99.1332]); // CDMX por defecto
-
   const {
     formData,
     isSubmitting,
     notification,
     handleInputChange,
-    handleSubmit,
-    hideNotification
-  } = useContactForm(setLocation); // Le pasamos setLocation al hook para que actualice el mapa
+    handleSubmit: handleSubmitFromHook,
+    hideNotification,
+    resetForm,
+  } = useContactForm();
+
+  const [location, setLocation] = useState([19.4326, -99.1332]); // CDMX
+  const [savedData, setSavedData] = useState([]); // Simula almacenamiento local
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Buscar coordenadas del destino
+      const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${formData.destination}`);
+      const data = await response.json();
+
+      if (data.length > 0) {
+        setLocation([parseFloat(data[0].lat), parseFloat(data[0].lon)]);
+      }
+    } catch (error) {
+      console.error('Error buscando ubicación:', error);
+    }
+
+    // Guardar en memoria
+    setSavedData(prev => [...prev, formData]);
+    console.log('Datos guardados localmente:', [...savedData, formData]);
+
+    // Enviar formulario al backend
+    await handleSubmitFromHook(e);
+
+    // Reset del formulario si lo necesitas
+    resetForm?.();
+  };
 
   return (
     <section id="seccion7">
@@ -45,9 +73,9 @@ const Seccion7 = () => {
 
         <form className="contact-form" onSubmit={handleSubmit}>
           <div className="contact-row">
-            <input
-              type="text"
-              placeholder="Tu nombre..."
+            <input 
+              type="text" 
+              placeholder="Tu nombre..." 
               className="contact-input"
               value={formData.name}
               onChange={(e) => handleInputChange('name', e.target.value)}
@@ -63,25 +91,25 @@ const Seccion7 = () => {
             />
           </div>
 
-          <input
-            type="text"
-            placeholder="¿A qué lugar deseas viajar?"
+          <input 
+            type="text" 
+            placeholder="¿A qué lugar deseas viajar?" 
             className="contact-input"
             value={formData.destination}
             onChange={(e) => handleInputChange('destination', e.target.value)}
             required
           />
 
-          <textarea
-            placeholder="Tu mensaje..."
+          <textarea 
+            placeholder="Tu mensaje..." 
             className="contact-textarea"
             value={formData.message}
             onChange={(e) => handleInputChange('message', e.target.value)}
             required
           ></textarea>
 
-          <button
-            type="submit"
+          <button 
+            type="submit" 
             className="contact-btn"
             disabled={isSubmitting}
           >
