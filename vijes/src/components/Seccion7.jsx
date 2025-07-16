@@ -23,32 +23,42 @@ const Seccion7 = () => {
     resetForm,
   } = useContactForm();
 
-  const [location, setLocation] = useState([19.4326, -99.1332]); // CDMX
-  const [savedData, setSavedData] = useState([]); // Simula almacenamiento local
+  const [location, setLocation] = useState([19.4326, -99.1332]); 
+  const [savedData, setSavedData] = useState([]);
+
+  const countries = [
+    { name: 'México', coords: [19.4326, -99.1332], flag: ' ' },
+    { name: 'España', coords: [40.4168, -3.7038], flag: '' },
+    { name: 'Francia', coords: [48.8566, 2.3522], flag: ' ' },
+    { name: 'Italia', coords: [41.9028, 12.4964], flag: '  ' },
+    { name: 'Japón', coords: [35.6762, 139.6503], flag: '  ' },
+    { name: 'Estados Unidos', coords: [40.7128, -74.0060], flag: '  ' },
+    { name: 'Canadá', coords: [45.5017, -73.5673], flag: ' ' },
+    { name: 'Brasil', coords: [-23.5505, -46.6333], flag: ' ' },
+    { name: 'Argentina', coords: [-34.6118, -58.3960], flag: '  ' },
+    { name: 'Chile', coords: [-33.4489, -70.6693], flag: ' ' },
+    { name: 'Perú', coords: [-12.0464, -77.0428], flag: '  ' },
+    { name: 'Colombia', coords: [4.7110, -74.0721], flag: '  ' }
+  ];
+
+  const handleCountryChange = (e) => {
+    const selectedCountry = countries.find(country => country.name === e.target.value);
+    if (selectedCountry) {
+      setLocation(selectedCountry.coords);
+      handleInputChange('destination', selectedCountry.name);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      // Buscar coordenadas del destino
-      const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${formData.destination}`);
-      const data = await response.json();
-
-      if (data.length > 0) {
-        setLocation([parseFloat(data[0].lat), parseFloat(data[0].lon)]);
-      }
-    } catch (error) {
-      console.error('Error buscando ubicación:', error);
-    }
-
-    // Guardar en memoria
+    
     setSavedData(prev => [...prev, formData]);
-    console.log('Datos guardados localmente:', [...savedData, formData]);
 
-    // Enviar formulario al backend
+   
     await handleSubmitFromHook(e);
 
-    // Reset del formulario si lo necesitas
+    
     resetForm?.();
   };
 
@@ -91,14 +101,19 @@ const Seccion7 = () => {
             />
           </div>
 
-          <input 
-            type="text" 
-            placeholder="¿A qué lugar deseas viajar?" 
-            className="contact-input"
+          <select 
+            className="contact-input country-select"
             value={formData.destination}
-            onChange={(e) => handleInputChange('destination', e.target.value)}
+            onChange={handleCountryChange}
             required
-          />
+          >
+            <option value="">Selecciona un destino...</option>
+            {countries.map((country) => (
+              <option key={country.name} value={country.name}>
+                {country.flag} {country.name}
+              </option>
+            ))}
+          </select>
 
           <textarea 
             placeholder="Tu mensaje..." 
