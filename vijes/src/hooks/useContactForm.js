@@ -53,7 +53,7 @@ export const useContactForm = () => {
 
     try {
       await apiService.submitContactForm(formData);
-      showNotification('success', '¡Formulario enviado exitosamente! Redirigiendo a Calendly...');
+      showNotification('success', '¡Formulario enviado exitosamente! Abriendo Calendly en nueva pestaña...');
       
       // Limpiar formulario después del éxito
       setFormData({
@@ -63,10 +63,10 @@ export const useContactForm = () => {
         message: ''
       });
       
-      // Redirigir a Calendly después de un breve delay
+      // Abrir Calendly en nueva pestaña después de un breve delay
       setTimeout(() => {
         const calendlyLink = 'https://calendly.com/2022023-utsh/agenda-tu-vuelo';
-        window.location.href = calendlyLink;
+        window.open(calendlyLink, '_blank');
       }, 3000);
       
     } catch (error) {
