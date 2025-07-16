@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 import './Seccion7.css';
 import { useContactForm } from '../hooks/useContactForm.js';
 import Notification from './Notification.jsx';
+
+const SetMapView = ({ coords }) => {
+  const map = useMap();
+  map.setView(coords, 13);
+  return null;
+};
 
 const Seccion7 = () => {
   const {
@@ -9,15 +18,58 @@ const Seccion7 = () => {
     isSubmitting,
     notification,
     handleInputChange,
-    handleSubmit,
-    hideNotification
+    handleSubmit: handleSubmitFromHook,
+    hideNotification,
+    resetForm,
   } = useContactForm();
+
+  const [location, setLocation] = useState([19.4326, -99.1332]); // CDMX
+  const [savedData, setSavedData] = useState([]); // Simula almacenamiento local
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Buscar coordenadas del destino
+      const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${formData.destination}`);
+      const data = await response.json();
+
+      if (data.length > 0) {
+        setLocation([parseFloat(data[0].lat), parseFloat(data[0].lon)]);
+      }
+    } catch (error) {
+      console.error('Error buscando ubicación:', error);
+    }
+
+    // Guardar en memoria
+    setSavedData(prev => [...prev, formData]);
+    console.log('Datos guardados localmente:', [...savedData, formData]);
+
+    // Enviar formulario al backend
+    await handleSubmitFromHook(e);
+
+    // Reset del formulario si lo necesitas
+    resetForm?.();
+  };
 
   return (
     <section id="seccion7">
       <h2 className="contact-title">CONTACT US</h2>
       <div className="contact-container">
-        <div className="contact-card-empty">Aqui va el mapa</div>
+        <div className="contact-card-map">
+          <MapContainer center={location} zoom={13} scrollWheelZoom={false} style={{ height: '100%', width: '100%' }}>
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution="&copy; OpenStreetMap contributors"
+            />
+            <Marker position={location} icon={L.icon({
+              iconUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png",
+              iconSize: [25, 41],
+              iconAnchor: [12, 41]
+            })} />
+            <SetMapView coords={location} />
+          </MapContainer>
+        </div>
 
         <form className="contact-form" onSubmit={handleSubmit}>
           <div className="contact-row">
@@ -38,7 +90,7 @@ const Seccion7 = () => {
               required
             />
           </div>
-          
+
           <input 
             type="text" 
             placeholder="¿A qué lugar deseas viajar?" 
@@ -47,7 +99,7 @@ const Seccion7 = () => {
             onChange={(e) => handleInputChange('destination', e.target.value)}
             required
           />
-          
+
           <textarea 
             placeholder="Tu mensaje..." 
             className="contact-textarea"
@@ -55,7 +107,7 @@ const Seccion7 = () => {
             onChange={(e) => handleInputChange('message', e.target.value)}
             required
           ></textarea>
-          
+
           <button 
             type="submit" 
             className="contact-btn"
@@ -66,7 +118,6 @@ const Seccion7 = () => {
         </form>
       </div>
 
-      {/* Notificación elegante */}
       <Notification
         type={notification.type}
         message={notification.message}
