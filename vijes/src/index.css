@@ -49,7 +49,10 @@ section {
   background-color: #f9f9f9;
   box-sizing: border-box;
   text-align: center;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 
@@ -69,6 +72,7 @@ section {
   font-weight: bold;
   margin-bottom: 60px;
   text-transform: uppercase;
+  color: #000;
 }
 
 .portfolio-filters {
