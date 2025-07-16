@@ -5,7 +5,6 @@ import Img_portfolio from "./img_portfolio";
 const Seccion4 = () => {
 
   const [paisSeleccionado, setPaisSeleccionado] = useState("france");
-
   const paises = ["france", "england", "switzerland", "germany", "italy"];
 
 

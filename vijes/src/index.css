@@ -92,8 +92,14 @@ nav ul li a:hover {
   font-weight: bold;
 }
 
+.filter.active {
+  font-weight: bold;
+  color: #000;
+}
+
 .portfolio-grid {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
   max-width: 1000px;
@@ -105,6 +111,7 @@ nav ul li a:hover {
   height: 180px;
   object-fit: cover;
   border-radius: 8px;
+  flex: 1 1 250px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -140,3 +147,4 @@ nav ul li a:hover {
 #contact {
   background-color: #dc3545;
 }
+

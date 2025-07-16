@@ -10,7 +10,7 @@ const Gallery_portfolio = ({pais}) => {
 
       let nombrePais = pais.toLowerCase();
 
-      // Lógica de nombres personalizados
+      
       let prefix = "";
       if (nombrePais === "france") {
         prefix = "img_fr" + i;
