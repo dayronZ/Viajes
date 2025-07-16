@@ -3,7 +3,7 @@ import React from 'react'
 const Img_portfolio = ({source}) => {
 
   return (
-    <img src={source}/>
+    <img src={source} className="fade-in" />
   )
 }
 
