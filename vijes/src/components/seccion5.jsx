@@ -7,7 +7,7 @@ import germanyImg from "../assets/ge01.jpg";
 const Seccion5 = () => {
   return (
     <section id="seccion5" className="blog-section">
-      <h2 className="">Visita nuestros blogs</h2>
+      <h2 className="">VISITA NUESTROS BLOGS</h2>
       <div className="blog-grid-layout">
         <div className="left-large-card">
           <BlogCard
