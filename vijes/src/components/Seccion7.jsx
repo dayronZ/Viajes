@@ -3,6 +3,8 @@ import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import './Seccion7.css';
+import { useContactForm } from '../hooks/useContactForm.js';
+import Notification from './Notification.jsx';
 
 const SetMapView = ({ coords }) => {
   const map = useMap();
@@ -11,46 +13,16 @@ const SetMapView = ({ coords }) => {
 };
 
 const Seccion7 = () => {
-  const [formData, setFormData] = useState({
-    nombre: '',
-    email: '',
-    destino: '',
-    mensaje: '',
-  });
-
   const [location, setLocation] = useState([19.4326, -99.1332]); // CDMX por defecto
-  const [savedData, setSavedData] = useState([]); // Esto es tu "JSON" en memoria
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    // Buscar coordenadas del lugar que escribió el usuario
-    try {
-      const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${formData.destino}`);
-      const data = await response.json();
-      if (data.length > 0) {
-        setLocation([parseFloat(data[0].lat), parseFloat(data[0].lon)]);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-
-    // Guardar en JSON local (en memoria, simulando un archivo .json)
-    setSavedData([...savedData, formData]);
-    console.log('Datos guardados:', [...savedData, formData]);
-
-    // Limpiar formulario
-    setFormData({
-      nombre: '',
-      email: '',
-      destino: '',
-      mensaje: '',
-    });
-  };
+  const {
+    formData,
+    isSubmitting,
+    notification,
+    handleInputChange,
+    handleSubmit,
+    hideNotification
+  } = useContactForm(setLocation); // Le pasamos setLocation al hook para que actualice el mapa
 
   return (
     <section id="seccion7">
@@ -73,14 +45,57 @@ const Seccion7 = () => {
 
         <form className="contact-form" onSubmit={handleSubmit}>
           <div className="contact-row">
-            <input type="text" name="nombre" value={formData.nombre} onChange={handleChange} placeholder="Tu nombre..." className="contact-input" />
-            <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Tu email..." className="contact-input" />
+            <input
+              type="text"
+              placeholder="Tu nombre..."
+              className="contact-input"
+              value={formData.name}
+              onChange={(e) => handleInputChange('name', e.target.value)}
+              required
+            />
+            <input
+              type="email"
+              placeholder="Tu email..."
+              className="contact-input"
+              value={formData.email}
+              onChange={(e) => handleInputChange('email', e.target.value)}
+              required
+            />
           </div>
-          <input type="text" name="destino" value={formData.destino} onChange={handleChange} placeholder="¿A qué lugar deseas viajar?" className="contact-input" />
-          <textarea name="mensaje" value={formData.mensaje} onChange={handleChange} placeholder="Tu mensaje..." className="contact-textarea"></textarea>
-          <button type="submit" className="contact-btn">Enviar</button>
+
+          <input
+            type="text"
+            placeholder="¿A qué lugar deseas viajar?"
+            className="contact-input"
+            value={formData.destination}
+            onChange={(e) => handleInputChange('destination', e.target.value)}
+            required
+          />
+
+          <textarea
+            placeholder="Tu mensaje..."
+            className="contact-textarea"
+            value={formData.message}
+            onChange={(e) => handleInputChange('message', e.target.value)}
+            required
+          ></textarea>
+
+          <button
+            type="submit"
+            className="contact-btn"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Enviando...' : 'Enviar'}
+          </button>
         </form>
       </div>
+
+      <Notification
+        type={notification.type}
+        message={notification.message}
+        isVisible={notification.show}
+        onClose={hideNotification}
+      />
     </section>
   );
 };
