@@ -6,7 +6,7 @@ const Seccion6 = () => {
     <section id="seccion6" className="seccion6-container">
       <div className="seccion6-content">
         <h2 className="seccion6-title">PRECIO DE LOS PAQUETES </h2>
-        <h4 className="seccion6-subtitle2">Viaje redondo</h4>
+        <h4 className="seccion6-subtitle2">Viaje Rsedondo</h4>
         <div className="seccion6-stats">
           <div className="seccion6-stat-card">
             <div className="seccion6-stat-number">$8,663</div>
