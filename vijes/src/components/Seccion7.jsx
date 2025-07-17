@@ -3,6 +3,8 @@ import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import './Seccion7.css';
+import { useContactForm } from '../hooks/useContactForm.js';
+import Notification from './Notification.jsx';
 
 const SetMapView = ({ coords }) => {
   const map = useMap();
@@ -11,45 +13,53 @@ const SetMapView = ({ coords }) => {
 };
 
 const Seccion7 = () => {
-  const [formData, setFormData] = useState({
-    nombre: '',
-    email: '',
-    destino: '',
-    mensaje: '',
-  });
+  const {
+    formData,
+    isSubmitting,
+    notification,
+    handleInputChange,
+    handleSubmit: handleSubmitFromHook,
+    hideNotification,
+    resetForm,
+  } = useContactForm();
 
-  const [location, setLocation] = useState([19.4326, -99.1332]); // CDMX por defecto
-  const [savedData, setSavedData] = useState([]); // Esto es tu "JSON" en memoria
+  const [location, setLocation] = useState([19.4326, -99.1332]); 
+  const [savedData, setSavedData] = useState([]);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const countries = [
+    { name: 'México', coords: [19.4326, -99.1332], flag: ' ' },
+    { name: 'España', coords: [40.4168, -3.7038], flag: '' },
+    { name: 'Francia', coords: [48.8566, 2.3522], flag: ' ' },
+    { name: 'Italia', coords: [41.9028, 12.4964], flag: '  ' },
+    { name: 'Japón', coords: [35.6762, 139.6503], flag: '  ' },
+    { name: 'Estados Unidos', coords: [40.7128, -74.0060], flag: '  ' },
+    { name: 'Canadá', coords: [45.5017, -73.5673], flag: ' ' },
+    { name: 'Brasil', coords: [-23.5505, -46.6333], flag: ' ' },
+    { name: 'Argentina', coords: [-34.6118, -58.3960], flag: '  ' },
+    { name: 'Chile', coords: [-33.4489, -70.6693], flag: ' ' },
+    { name: 'Perú', coords: [-12.0464, -77.0428], flag: '  ' },
+    { name: 'Colombia', coords: [4.7110, -74.0721], flag: '  ' }
+  ];
+
+  const handleCountryChange = (e) => {
+    const selectedCountry = countries.find(country => country.name === e.target.value);
+    if (selectedCountry) {
+      setLocation(selectedCountry.coords);
+      handleInputChange('destination', selectedCountry.name);
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Buscar coordenadas del lugar que escribió el usuario
-    try {
-      const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${formData.destino}`);
-      const data = await response.json();
-      if (data.length > 0) {
-        setLocation([parseFloat(data[0].lat), parseFloat(data[0].lon)]);
-      }
-    } catch (error) {
-      console.error(error);
-    }
+    
+    setSavedData(prev => [...prev, formData]);
 
-    // Guardar en JSON local (en memoria, simulando un archivo .json)
-    setSavedData([...savedData, formData]);
-    console.log('Datos guardados:', [...savedData, formData]);
+   
+    await handleSubmitFromHook(e);
 
-    // Limpiar formulario
-    setFormData({
-      nombre: '',
-      email: '',
-      destino: '',
-      mensaje: '',
-    });
+    
+    resetForm?.();
   };
 
   return (
@@ -73,14 +83,62 @@ const Seccion7 = () => {
 
         <form className="contact-form" onSubmit={handleSubmit}>
           <div className="contact-row">
-            <input type="text" name="nombre" value={formData.nombre} onChange={handleChange} placeholder="Tu nombre..." className="contact-input" />
-            <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Tu email..." className="contact-input" />
+            <input 
+              type="text" 
+              placeholder="Tu nombre..." 
+              className="contact-input"
+              value={formData.name}
+              onChange={(e) => handleInputChange('name', e.target.value)}
+              required
+            />
+            <input
+              type="email"
+              placeholder="Tu email..."
+              className="contact-input"
+              value={formData.email}
+              onChange={(e) => handleInputChange('email', e.target.value)}
+              required
+            />
           </div>
-          <input type="text" name="destino" value={formData.destino} onChange={handleChange} placeholder="¿A qué lugar deseas viajar?" className="contact-input" />
-          <textarea name="mensaje" value={formData.mensaje} onChange={handleChange} placeholder="Tu mensaje..." className="contact-textarea"></textarea>
-          <button type="submit" className="contact-btn">Enviar</button>
+
+          <select 
+            className="contact-input country-select"
+            value={formData.destination}
+            onChange={handleCountryChange}
+            required
+          >
+            <option value="">Selecciona un destino...</option>
+            {countries.map((country) => (
+              <option key={country.name} value={country.name}>
+                {country.flag} {country.name}
+              </option>
+            ))}
+          </select>
+
+          <textarea 
+            placeholder="Tu mensaje..." 
+            className="contact-textarea"
+            value={formData.message}
+            onChange={(e) => handleInputChange('message', e.target.value)}
+            required
+          ></textarea>
+
+          <button 
+            type="submit" 
+            className="contact-btn"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Enviando...' : 'Enviar'}
+          </button>
         </form>
       </div>
+
+      <Notification
+        type={notification.type}
+        message={notification.message}
+        isVisible={notification.show}
+        onClose={hideNotification}
+      />
     </section>
   );
 };

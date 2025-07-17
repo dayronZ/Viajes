@@ -13,9 +13,6 @@ body {
 }
 
 
-
-<<<<<<< HEAD
-=======
 nav ul li {
   margin: 0 20px;
 }
@@ -31,7 +28,7 @@ nav ul li a:hover {
 }
 
 /* Estilo para las secciones */
-<<<<<<< HEAD
+
 section {
   min-height: 100vh;
   padding: 100px 20px 20px 20px; /* Espacio arriba para que no lo tape el nav */
@@ -39,13 +36,11 @@ section {
   align-items: center;
   justify-content: center;
   font-size: 2rem;
-<<<<<<< HEAD
+
   color: #fff;
   background-color: #e9dfdf;
-=======
-}
-=======
->>>>>>> 5e26dd7f8e39f5e624ea85a48fd086c1b1fcd202
+
+} 
 
 #seccion4 {
   min-height: 100vh;
@@ -142,6 +137,11 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  font-size: 2rem;
+  color: #fff;
+  background-color: #e9dfdf;
+
   min-height: 100vh;
 }
 
@@ -275,10 +275,9 @@ section {
 
 #contact {
   background-color: #dc3545;
->>>>>>> 26c8b5920560fce09a5fe305b80b38e662fdb394
-}
-<<<<<<< HEAD
->>>>>>> 0de944e0bbefbe21a7ac641f5766305cb8cf5c55
-=======
 
->>>>>>> 5e26dd7f8e39f5e624ea85a48fd086c1b1fcd202
+
+}
+
+
+
