@@ -9,7 +9,7 @@ const Notification = ({ type, message, isVisible, onClose }) => {
       setIsAnimating(true);
       const timer = setTimeout(() => {
         onClose();
-      }, 4000); // Auto-close after 4 seconds
+      }, 5000); 
 
       return () => clearTimeout(timer);
     }

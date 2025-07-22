@@ -90,6 +90,7 @@ const Seccion7 = () => {
               value={formData.name}
               onChange={(e) => handleInputChange('name', e.target.value)}
               required
+              disabled={isSubmitting}
             />
             <input 
               type="email" 
@@ -98,14 +99,48 @@ const Seccion7 = () => {
               value={formData.email}
               onChange={(e) => handleInputChange('email', e.target.value)}
               required
+              disabled={isSubmitting}
             />
           </div>
+          <input
+            type="date"
+            className="contact-input"
+            value={formData.date || ''}
+            onChange={(e) => handleInputChange('date', e.target.value)}
+            required
+            disabled={isSubmitting}
+          />
+          <select
+            className="contact-input"
+            value={formData.time || ''}
+            onChange={(e) => handleInputChange('time', e.target.value)}
+            required
+            disabled={isSubmitting}
+          >
+            <option value="">Selecciona una hora...</option>
+            <option value="10:00">10:00</option>
+            <option value="10:30">10:30</option>
+            <option value="11:00">11:00</option>
+            <option value="11:30">11:30</option>
+            <option value="12:00">12:00</option>
+            <option value="12:30">12:30</option>
+            <option value="13:00">13:00</option>
+            <option value="13:30">13:30</option>
+            <option value="14:00">14:00</option>
+            <option value="14:30">14:30</option>
+            <option value="15:00">15:00</option>
+            <option value="15:30">15:30</option>
+            <option value="16:00">16:00</option>
+            <option value="16:30">16:30</option>
+            <option value="17:00">17:00</option>
+          </select>
 
           <select 
             className="contact-input country-select"
             value={formData.destination}
             onChange={handleCountryChange}
             required
+            disabled={isSubmitting}
           >
             <option value="">Selecciona un destino...</option>
             {countries.map((country) => (
@@ -121,11 +156,12 @@ const Seccion7 = () => {
             value={formData.message}
             onChange={(e) => handleInputChange('message', e.target.value)}
             required
+            disabled={isSubmitting}
           ></textarea>
 
           <button 
             type="submit" 
-            className="contact-btn"
+            className={`contact-btn${isSubmitting ? ' contact-btn-blue' : ''}`}
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Enviando...' : 'Enviar'}
