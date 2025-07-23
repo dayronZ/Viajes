@@ -1,19 +1,7 @@
-<<<<<<< HEAD
-=======
-html, body {
-  overflow-x: hidden;
-}
-
->>>>>>> c8e5d1387d62982b8d79780fcf525701586f3fd8
-body {
-  overflow-x: hidden;
-}
-
 .navbar {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
   background-color: transparent;
   z-index: 1000;
   padding: 15px 30px;
@@ -21,8 +9,6 @@ body {
   justify-content: center;
   align-items: center;
   transition: all 0.3s ease;
-  box-sizing: border-box;
-  overflow-x: hidden;
 }
 
 .navbar-light {
@@ -35,16 +21,12 @@ body {
 }
 
 .navbar-content {
-<<<<<<< HEAD
-=======
-  position: relative; /* Para que el menú absoluto no se salga */
->>>>>>> c8e5d1387d62982b8d79780fcf525701586f3fd8
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
-  box-sizing: border-box;
+  padding-left: -10%;
 }
 
 .navbar-title {
@@ -144,21 +126,14 @@ body {
     background: rgba(0, 0, 0, 0.8);
     position: absolute;
     top: 60px;
-<<<<<<< HEAD
     right: 20px;
     width: auto;
     min-width: 200px;
-=======
-    right: 0;
-    width: 100%;
-    max-width: 250px;
->>>>>>> c8e5d1387d62982b8d79780fcf525701586f3fd8
     border-radius: 8px;
     overflow: hidden;
     max-height: 0;
     opacity: 0;
     transition: max-height 0.5s ease, opacity 0.5s ease;
-    transform: translateX(0);
   }
 
   .menu-toggle:checked + .menu-icon + .menu {
