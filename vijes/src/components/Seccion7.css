@@ -2,7 +2,7 @@
   background-image: url('/src/assets/avion.jpg');
   background-size: cover;
   background-position: center;
-  min-height: 100vh;
+  min-height: 80vh;
   width: 100%;
   display: flex;
   flex-direction: column; 
@@ -10,6 +10,7 @@
   justify-content: flex-start; 
   position: relative;
   padding-top: 60px;
+  padding-bottom: 40px;
 }
 
 #seccion7::before {
