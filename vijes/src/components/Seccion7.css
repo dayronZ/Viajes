@@ -1,8 +1,8 @@
 #seccion7 {
   background-image: url('/src/assets/avion.jpg');
-  background-size: cover;
+  background-size: 110%;
   background-position: center;
-  min-height: 80vh;
+  min-height: 88vh;
   width: 100%;
   display: flex;
   flex-direction: column; 
