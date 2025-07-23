@@ -43,21 +43,37 @@ const Seccion8 = () => {
     setOpenIndex(openIndex === idx ? null : idx);
   };
 
+  // Agrupar preguntas en filas de dos
+  const rows = [];
+  for (let i = 0; i < faqs.length; i += 2) {
+    rows.push([faqs[i], faqs[i + 1]]);
+  }
+
   return (
     <section id="seccion8">
       <h2 className="faq-title">Preguntas Frecuentes</h2>
-      <div className="faq-container">
-        {faqs.map((faq, idx) => (
-          <div key={idx} className={`faq-item ${openIndex === idx ? 'open' : ''}`}> 
-            <button className="faq-question" onClick={() => toggleAccordion(idx)}>
-              <span>{faq.question}</span>
-              <span className="faq-icon">{openIndex === idx ? '-' : '+'}</span>
-            </button>
-            <div className="faq-answer" style={{ maxHeight: openIndex === idx ? '200px' : '0px' }}>
-              <p>{faq.answer}</p>
+      <div className="faq-bg">
+        <div className="faq-table">
+          {rows.map((row, rowIdx) => (
+            <div className="faq-row" key={rowIdx}>
+              {row.map((faq, colIdx) => {
+                const idx = rowIdx * 2 + colIdx;
+                if (!faq) return <div className="faq-cell" key={colIdx}></div>;
+                return (
+                  <div className="faq-cell" key={colIdx}>
+                    <button className="faq-question-row" onClick={() => toggleAccordion(idx)}>
+                      <span className="faq-question-text">{faq.question}</span>
+                      <span className="faq-icon-row">{openIndex === idx ? '-' : '+'}</span>
+                    </button>
+                    <div className="faq-answer-row" style={{ maxHeight: openIndex === idx ? '200px' : '0px' }}>
+                      <p>{faq.answer}</p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
