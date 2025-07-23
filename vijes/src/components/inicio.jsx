@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
+import AuthModal from './AuthModal.jsx';
 
 const Navbar = () => {
   const [navbarStyle, setNavbarStyle] = useState('light');
+  const [showAuthModal, setShowAuthModal] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,6 +59,7 @@ const Navbar = () => {
           <li><a href="#seccion5">Blogs</a></li>
           <li><a href="#seccion6">Costos</a></li>
           <li><a href="#seccion7">Contactanos</a></li>
+          <li><button className="login-btn" onClick={() => window.open('/login', '_blank')}>Login</button></li>
         </ul>
       </div>
     </nav>

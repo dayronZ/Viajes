@@ -105,6 +105,54 @@
   color: white;
 }
 
+.login-btn {
+  background: #fff;
+  color: #222;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background 0.3s, color 0.3s;
+}
+.login-btn:hover {
+  background: #222;
+  color: #fff;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+.modal-content {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+  min-width: 320px;
+  max-width: 90vw;
+  position: relative;
+}
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #222;
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .navbar {
     justify-content: space-between;
