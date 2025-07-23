@@ -1,10 +1,16 @@
+<<<<<<< HEAD
 html, body {
   overflow-x: hidden;
 }
 
 body {
+=======
+
+html, body {
+>>>>>>> e9132bceb3829097f3d6b7b278dd64d04fa2d93e
   overflow-x: hidden;
 }
+
 
 .navbar {
   position: fixed;
@@ -14,6 +20,7 @@ body {
   background-color: transparent;
   z-index: 1000;
   padding: 15px 30px;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,6 +43,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   width: 90%;
   max-width: 1200px;
   box-sizing: border-box;
@@ -138,9 +146,17 @@ body {
     background: rgba(0, 0, 0, 0.8);
     position: absolute;
     top: 60px;
+<<<<<<< HEAD
     right: 0;
     width: 100%;
     max-width: 250px;
+=======
+
+    right: 0;
+    width: 100%;
+    max-width: 250px;
+
+>>>>>>> e9132bceb3829097f3d6b7b278dd64d04fa2d93e
     border-radius: 8px;
     overflow: hidden;
     max-height: 0;

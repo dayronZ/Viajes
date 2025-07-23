@@ -10,6 +10,7 @@ import Seccion4 from './components/seccion4.jsx';
 import Seccion5 from './components/seccion5.jsx';
 import Seccion6 from './components/seccion6.jsx';
 import Seccion7 from './components/Seccion7.jsx';
+import Seccion8 from './components/Seccion8.jsx';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
       <Seccion5 />
       <Seccion6 />
       <Seccion7 />
+      <Seccion8/>
     </>
   );
 };
@@ -29,5 +31,5 @@ const App = () => {
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
-  </StrictMode>
+    </StrictMode>
 );

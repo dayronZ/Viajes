@@ -57,6 +57,7 @@ const Navbar = () => {
           <li><a href="#seccion5">Blogs</a></li>
           <li><a href="#seccion6">Costos</a></li>
           <li><a href="#seccion7">Contactanos</a></li>
+          <li><a href="#seccion8">FAQs</a></li>
         </ul>
       </div>
     </nav>
