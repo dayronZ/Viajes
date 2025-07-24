@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import '../../public/auth.css';
+import { useNavigate } from 'react-router-dom';
+import './styles/RecoveryForm.css'; // Asegúrate de tener esta ruta
 
 const RecoveryForm = () => {
   const [recoveryData, setRecoveryData] = useState({
@@ -12,18 +13,30 @@ const RecoveryForm = () => {
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const [showQuestion, setShowQuestion] = useState(false);
+  const [passwordStrength, setPasswordStrength] = useState(0);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setRecoveryData({ ...recoveryData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setRecoveryData({ ...recoveryData, [name]: value });
+    
+    // Calcular fuerza de la contraseña
+    if (name === 'newPassword') {
+      let strength = 0;
+      if (value.length > 5) strength += 25;
+      if (value.length > 7) strength += 25;
+      if (/[A-Z]/.test(value)) strength += 25;
+      if (/[0-9!@#$%^&*]/.test(value)) strength += 25;
+      setPasswordStrength(strength);
+    }
   };
 
   const handleGetSecurityQuestion = async (e) => {
     e.preventDefault();
     setLoading(true);
     setMessage('');
-    setShowQuestion(false);
     try {
-      const res = await fetch('https://calendly-18rn.onrender.com/auth/security-question', {
+      const res = await fetch('https://calendly-18rn.onrender.com/user/security-question', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: recoveryData.email })
@@ -47,24 +60,31 @@ const RecoveryForm = () => {
     e.preventDefault();
     setLoading(true);
     setMessage('');
-    if (recoveryData.newPassword !== recoveryData.confirmNewPassword) {
+
+    const { email, securityAnswer, newPassword, confirmNewPassword } = recoveryData;
+
+    if (newPassword !== confirmNewPassword) {
       setMessage('Las contraseñas no coinciden');
       setLoading(false);
       return;
     }
+
+    if (passwordStrength < 75) {
+      setMessage('La contraseña es demasiado débil. Intenta con una más segura.');
+      setLoading(false);
+      return;
+    }
+
     try {
-      const res = await fetch('https://calendly-18rn.onrender.com/auth/reset-password', {
+      const res = await fetch('https://calendly-18rn.onrender.com/user/reset-password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: recoveryData.email,
-          securityAnswer: recoveryData.securityAnswer,
-          newPassword: recoveryData.newPassword
-        })
+        body: JSON.stringify({ email, securityAnswer, newPassword })
       });
       const data = await res.json();
       if (data.success) {
-        setMessage('¡Contraseña actualizada! Ahora puedes iniciar sesión.');
+        setMessage('¡Contraseña actualizada! Redirigiendo al login...');
+        setTimeout(() => navigate('/login'), 2000);
       } else {
         setMessage(data.message || 'Error al actualizar la contraseña');
       }
@@ -76,35 +96,116 @@ const RecoveryForm = () => {
   };
 
   return (
-    <div className="auth-modal-root auth-modal-full">
-      <form className="auth-form" onSubmit={showQuestion ? handleResetPassword : handleGetSecurityQuestion}>
-        <label>Email
-          <input type="email" name="email" value={recoveryData.email} onChange={handleChange} required />
-        </label>
-        {!showQuestion && (
-          <button type="submit" disabled={loading}>{loading ? 'Buscando...' : 'Buscar pregunta de seguridad'}</button>
-        )}
+    <div className="recovery-modal-root">
+      <form
+        className="recovery-form"
+        onSubmit={showQuestion ? handleResetPassword : handleGetSecurityQuestion}
+      >
+        <h2 className="recovery-form-title">Recuperar Contraseña</h2>
+        
+        <div className="recovery-step">
+          <label className="recovery-label">
+            Email
+            <input
+              className="recovery-input"
+              type="email"
+              name="email"
+              value={recoveryData.email}
+              onChange={handleChange}
+              required
+              placeholder="tu@email.com"
+            />
+          </label>
+          
+          {!showQuestion && (
+            <button className="recovery-btn" type="submit" disabled={loading}>
+              {loading ? 'Buscando...' : 'Buscar pregunta de seguridad'}
+            </button>
+          )}
+        </div>
+        
         {showQuestion && (
-          <>
-            <label>Pregunta de seguridad
-              <input type="text" name="securityQuestion" value={recoveryData.securityQuestion} disabled />
+          <div className="recovery-step">
+            <label className="recovery-label">
+              Pregunta de seguridad
+              <input
+                className="recovery-input"
+                type="text"
+                name="securityQuestion"
+                value={recoveryData.securityQuestion}
+                disabled
+              />
             </label>
-            <label>Respuesta de seguridad
-              <input type="text" name="securityAnswer" value={recoveryData.securityAnswer} onChange={handleChange} required />
+            
+            <label className="recovery-label">
+              Respuesta de seguridad
+              <input
+                className="recovery-input"
+                type="text"
+                name="securityAnswer"
+                value={recoveryData.securityAnswer}
+                onChange={handleChange}
+                required
+                placeholder="Tu respuesta a la pregunta"
+              />
             </label>
-            <label>Nueva contraseña
-              <input type="password" name="newPassword" value={recoveryData.newPassword} onChange={handleChange} required />
+            
+            <label className="recovery-label">
+              Nueva contraseña
+              <input
+                className="recovery-input"
+                type="password"
+                name="newPassword"
+                value={recoveryData.newPassword}
+                onChange={handleChange}
+                required
+                placeholder="Mínimo 8 caracteres"
+              />
+              <div className="password-strength">
+                <div 
+                  className="password-strength-meter" 
+                  style={{ width: `${passwordStrength}%` }}
+                ></div>
+              </div>
             </label>
-            <label>Confirmar nueva contraseña
-              <input type="password" name="confirmNewPassword" value={recoveryData.confirmNewPassword} onChange={handleChange} required />
+            
+            <label className="recovery-label">
+              Confirmar nueva contraseña
+              <input
+                className="recovery-input"
+                type="password"
+                name="confirmNewPassword"
+                value={recoveryData.confirmNewPassword}
+                onChange={handleChange}
+                required
+                placeholder="Vuelve a escribir tu contraseña"
+              />
             </label>
-            <button type="submit" disabled={loading}>{loading ? 'Actualizando...' : 'Actualizar contraseña'}</button>
-          </>
+            
+            <button className="recovery-btn" type="submit" disabled={loading}>
+              {loading ? 'Actualizando...' : 'Actualizar contraseña'}
+            </button>
+          </div>
         )}
       </form>
-      {message && <div className="auth-message">{message}</div>}
+      
+      {message && (
+        <div className={`recovery-message ${message.includes('actualizada') ? 'success' : 'error'}`}>
+          {message}
+        </div>
+      )}
+      
+      <div className="recovery-links">
+        <a className="recovery-link" onClick={() => navigate('/login')}>
+          Volver al inicio de sesión
+        </a>
+        <span>•</span>
+        <a className="recovery-link" onClick={() => navigate('/register')}>
+          Crear nueva cuenta
+        </a>
+      </div>
     </div>
   );
 };
 
-export default RecoveryForm; 
+export default RecoveryForm;
