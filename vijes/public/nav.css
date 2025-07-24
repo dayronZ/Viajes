@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 html, body {
   overflow-x: hidden;
 }
@@ -12,21 +13,19 @@ html, body {
 }
 
 
+=======
+>>>>>>> 637c59ddb3ac32c8a2433b587c3204f8c1955674
 .navbar {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
   background-color: transparent;
   z-index: 1000;
   padding: 15px 30px;
-
   display: flex;
   justify-content: center;
   align-items: center;
   transition: all 0.3s ease;
-  box-sizing: border-box;
-  overflow-x: hidden;
 }
 
 .navbar-light {
@@ -39,14 +38,12 @@ html, body {
 }
 
 .navbar-content {
-  position: relative; /* Para que el menú absoluto no se salga */
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
-  box-sizing: border-box;
+  padding-left: -10%;
 }
 
 .navbar-title {
@@ -125,6 +122,54 @@ html, body {
   color: white;
 }
 
+.login-btn {
+  background: #fff;
+  color: #222;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background 0.3s, color 0.3s;
+}
+.login-btn:hover {
+  background: #222;
+  color: #fff;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+.modal-content {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+  min-width: 320px;
+  max-width: 90vw;
+  position: relative;
+}
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #222;
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .navbar {
     justify-content: space-between;
@@ -147,6 +192,7 @@ html, body {
     position: absolute;
     top: 60px;
 <<<<<<< HEAD
+<<<<<<< HEAD
     right: 0;
     width: 100%;
     max-width: 250px;
@@ -157,12 +203,16 @@ html, body {
     max-width: 250px;
 
 >>>>>>> e9132bceb3829097f3d6b7b278dd64d04fa2d93e
+=======
+    right: 20px;
+    width: auto;
+    min-width: 200px;
+>>>>>>> 637c59ddb3ac32c8a2433b587c3204f8c1955674
     border-radius: 8px;
     overflow: hidden;
     max-height: 0;
     opacity: 0;
     transition: max-height 0.5s ease, opacity 0.5s ease;
-    transform: translateX(0);
   }
 
   .menu-toggle:checked + .menu-icon + .menu {

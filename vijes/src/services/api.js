@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://calendly-18rn.onrender.com/api';
+const API_BASE_URL = 'https://calendly-18rn.onrender.com/';
 
 export const apiService = {
   async submitContactForm(formData) {

@@ -1,0 +1,239 @@
+/* recoveryForm.css */
+.recovery-modal-root {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f0f8ff 0%, #e6f7e6 100%);
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .recovery-form {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(138, 245, 124, 0.2);
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .recovery-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #8af57c 0%, #66cc33 100%);
+  }
+  
+  .recovery-label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    color: #555;
+    font-weight: 500;
+    margin-left: 2px;
+  }
+  
+  .recovery-input {
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 2px solid #d6f5d0;
+    font-size: 1rem;
+    background: #f7fff7;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .recovery-input::placeholder {
+    color: #aaa;
+  }
+  
+  .recovery-input:focus {
+    outline: none;
+    border-color: #8af57c;
+    background: #f0fff0;
+    box-shadow: 0 0 0 3px rgba(138, 245, 124, 0.2);
+  }
+  
+  .recovery-input:disabled {
+    background: #f0f0f0;
+    color: #888;
+    cursor: not-allowed;
+  }
+  
+  .recovery-btn {
+    background: #8af57c;
+    color: #222;
+    border: none;
+    border-radius: 10px;
+    padding: 16px 0;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 12px rgba(138, 245, 124, 0.3);
+    font-size: 1.05rem;
+    margin-top: 0.5rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  
+  .recovery-btn:hover:not(:disabled) {
+    background: #66cc33;
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(102, 204, 51, 0.4);
+    transform: translateY(-1px);
+  }
+  
+  .recovery-btn:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(102, 204, 51, 0.4);
+  }
+  
+  .recovery-btn:disabled {
+    background: #d8f3d0;
+    cursor: not-allowed;
+    box-shadow: none;
+    color: #888;
+  }
+  
+  .recovery-message {
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    max-width: 500px;
+    margin: 15px auto 0;
+  }
+  
+  .recovery-message.error {
+    background: #ffebee;
+    color: #d32f2f;
+    border: 1px solid #ffcdd2;
+  }
+  
+  .recovery-message.success {
+    background: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+  }
+  
+  .recovery-form-title {
+    text-align: center;
+    margin: 0 0 1.5rem 0;
+    color: #333;
+    font-size: 1.75rem;
+    font-weight: 600;
+    position: relative;
+  }
+  
+  .recovery-form-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #8af57c 0%, #66cc33 100%);
+    border-radius: 2px;
+  }
+  
+  .password-strength {
+    margin-top: 5px;
+    height: 6px;
+    border-radius: 3px;
+    background: #e0e0e0;
+    overflow: hidden;
+  }
+  
+  .password-strength-meter {
+    height: 100%;
+    background: #66cc33;
+    width: 0%;
+    transition: width 0.3s ease;
+  }
+  
+  .recovery-links {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #555;
+    font-size: 0.95rem;
+  }
+  
+  .recovery-link {
+    color: #66cc33;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    position: relative;
+    display: inline-block;
+    margin: 0 10px;
+  }
+  
+  .recovery-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #8af57c;
+    transition: width 0.3s ease;
+  }
+  
+  .recovery-link:hover {
+    color: #4aa82e;
+  }
+  
+  .recovery-link:hover::after {
+    width: 100%;
+  }
+  
+  /* Animaciones para la transición entre etapas */
+  .recovery-step {
+    animation: fadeIn 0.5s ease forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive */
+  @media (max-width: 576px) {
+    .recovery-form {
+      padding: 2rem 1.5rem;
+    }
+    
+    .recovery-form-title {
+      font-size: 1.5rem;
+    }
+    
+    .recovery-btn {
+      padding: 14px 0;
+    }
+  }

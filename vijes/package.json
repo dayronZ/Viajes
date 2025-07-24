@@ -16,7 +16,11 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-leaflet": "^5.0.0",
+<<<<<<< HEAD
     "react-router-dom": "^7.7.1"
+=======
+    "react-router-dom": "^7.7.0"
+>>>>>>> 637c59ddb3ac32c8a2433b587c3204f8c1955674
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
