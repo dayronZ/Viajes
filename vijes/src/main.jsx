@@ -11,6 +11,7 @@ import Seccion5 from './components/seccion5.jsx';
 import Seccion6 from './components/seccion6.jsx';
 import Seccion7 from './components/Seccion7.jsx';
 import Seccion8 from './components/Seccion8.jsx';
+import Seccion9 from './components/Seccion9.jsx';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
       <Seccion4 />
       <Seccion5 />
       <Seccion6 />
+      <Seccion9/>
       <Seccion7 />
       <Seccion8/>
     </>

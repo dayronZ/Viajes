@@ -43,7 +43,6 @@ const Seccion8 = () => {
     setOpenIndex(openIndex === idx ? null : idx);
   };
 
-  // Agrupar preguntas en filas de dos
   const rows = [];
   for (let i = 0; i < faqs.length; i += 2) {
     rows.push([faqs[i], faqs[i + 1]]);
