@@ -2,7 +2,7 @@
   background-image: url('/src/assets/avion.jpg');
   background-size: cover;
   background-position: center;
-  min-height: 100vh;
+  min-height: 80vh;
   width: 100%;
   display: flex;
   flex-direction: column; 
@@ -10,6 +10,7 @@
   justify-content: flex-start; 
   position: relative;
   padding-top: 60px;
+  padding-bottom: 40px;
 }
 
 #seccion7::before {
@@ -151,6 +152,25 @@
 
 .contact-btn:hover {
   background: #8fc46d;
+}
+
+.contact-btn-blue {
+  background: #3498db !important;
+  color: #fff !important;
+}
+
+/* Estilos para todos los selects y opciones del formulario */
+.contact-input select,
+.contact-input option,
+select.contact-input,
+select.contact-input option {
+  background: #333;
+  color: #fff;
+}
+
+select.contact-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(163, 210, 142, 0.3);
 }
 
 @media (max-width: 900px) {
