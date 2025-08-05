@@ -1,3 +1,7 @@
+html, body {
+  overflow-x: hidden;
+}
+
 body {
   overflow-x: hidden;
 }
@@ -28,6 +32,7 @@ body {
 }
 
 .navbar-content {
+  position: relative; /* Para que el menú absoluto no se salga */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -133,14 +138,15 @@ body {
     background: rgba(0, 0, 0, 0.8);
     position: absolute;
     top: 60px;
-    right: 20px;
-    width: auto;
-    min-width: 200px;
+    right: 0;
+    width: 100%;
+    max-width: 250px;
     border-radius: 8px;
     overflow: hidden;
     max-height: 0;
     opacity: 0;
     transition: max-height 0.5s ease, opacity 0.5s ease;
+    transform: translateX(0);
   }
 
   .menu-toggle:checked + .menu-icon + .menu {
