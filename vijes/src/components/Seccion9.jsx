@@ -6,25 +6,25 @@ const testimonios = [
     nombre: 'Ana Martinez',
     pais: 'México 🇲🇽',
     imagen: 'https://eaqxr36k8gu.exactdn.com/wp-content/uploads/2022/08/que-ver-hacer-bolivia-salar-uyuni.jpg?lossy=0&ssl=1',
-    texto: 'Bolivia 🇧🇴  me sorprendió por su autenticidad. Visitar el Salar de Uyuni 🏔️ fue como caminar sobre las nubes, ¡una experiencia mágica! La cultura andina, la calidez de la gente y la comida tradicional como la salteña hicieron de este viaje algo inolvidable. Es un destino que muchos subestiman, pero que tiene una belleza natural impresionante.'
+    texto: 'Bolivia me sorprendió por su autenticidad. Visitar el Salar de Uyuni fue como caminar sobre las nubes, ¡una experiencia mágica! La cultura andina, la calidez de la gente y la comida tradicional como la salteña hicieron de este viaje algo inolvidable. Es un destino que muchos subestiman, pero que tiene una belleza natural impresionante.'
   },
   {
     nombre: 'Luis Hernández',
     pais: 'Colombia 🇨🇴',
     imagen: 'https://static.vecteezy.com/system/resources/previews/046/769/819/non_2x/man-traveling-in-traditional-japanese-city-kyoto-in-momiji-season-photo.jpeg',
-    texto: 'Viajar a Japón 🇯🇵 fue como entrar en otro mundo. Me fascinó la combinación entre lo moderno y lo tradicional. Caminar por Kioto ⛩️ entre templos antiguos y luego ver la tecnología de Tokio fue increíble. La puntualidad, la limpieza y el respeto por la cultura te hacen sentir en paz. ¡Y el ramen, simplemente delicioso!'
+    texto: 'Viajar a Japón fue como entrar en otro mundo. Me fascinó la combinación entre lo moderno y lo tradicional. Caminar por Kioto entre templos antiguos y luego ver la tecnología de Tokio fue increíble. La puntualidad, la limpieza y el respeto por la cultura te hacen sentir en paz. ¡Y el ramen, simplemente delicioso!'
   },
   {
     nombre: 'Camila Ríos',
     pais: ' Chile 🇨🇱',
     imagen: 'https://plus.unsplash.com/premium_photo-1663036583472-84bee4a90090?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1fHx8ZW58MHx8fHx8',
-    texto: 'Siempre soñé con ver la Torre Eiffel 🗼 y cuando por fin lo hice, se me salieron las lágrimas. París 🇫🇷 es tan romántico como lo pintan. Los museos, las calles, los cafés... todo tiene un encanto único. Me enamoré del arte en el Louvre y del ambiente bohemio de Montmartre. Sin duda, una ciudad que hay que vivir al menos una vez.'
+    texto: 'Siempre soñé con ver la Torre Eiffel y cuando por fin lo hice, se me salieron las lágrimas. París es tan romántico como lo pintan. Los museos, las calles, los cafés... todo tiene un encanto único. Me enamoré del arte en el Louvre y del ambiente bohemio de Montmartre. Sin duda, una ciudad que hay que vivir al menos una vez.'
   },
   {
     nombre: ' Javier Soto',
     pais: 'Perú 🇵🇪',
     imagen: 'https://static.vecteezy.com/system/resources/previews/032/985/943/non_2x/rear-view-of-young-man-looking-at-colosseum-in-rome-italy-male-tourist-standing-in-front-of-a-sandy-beach-and-watching-the-sea-rear-view-full-body-ai-generated-free-photo.jpg',
-    texto: 'Italia 🇮🇹 es historia viva. Desde Roma 🏛️  con su Coliseo hasta los canales de Venecia, todo parece sacado de una película. Amé la comida: la pasta, la pizza, el gelato… ¡es como si cada bocado fuera una obra de arte! Pero más allá de eso, la pasión de los italianos y la belleza de sus ciudades me dejaron con ganas de volver.'
+    texto: 'Italia es historia viva. Desde Roma con su Coliseo hasta los canales de Venecia, todo parece sacado de una película. Amé la comida: la pasta, la pizza, el gelato… ¡es como si cada bocado fuera una obra de arte! Pero más allá de eso, la pasión de los italianos y la belleza de sus ciudades me dejaron con ganas de volver.'
   }
 ];
 
