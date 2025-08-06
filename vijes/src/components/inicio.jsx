@@ -64,7 +64,6 @@ const Navbar = () => {
   }, []);
 
   return (
-    <>
       <nav className={`navbar navbar-${navbarStyle}`}>
         <link rel="stylesheet" href="./nav.css" />
         <input type="checkbox" id="menu-toggle" className="menu-toggle" aria-label="Toggle menu" />
@@ -72,40 +71,37 @@ const Navbar = () => {
           &#9776;
         </label>
 
-        <div className="navbar-content">
-          <div className="navbar-title">ViajesUtsh</div>
-          <ul className="menu">
-            <li><a href="#seccion1">Inicio</a></li>
-            <li><a href="#seccion2">Paquetes</a></li>
-            <li><a href="#seccion3">Todo Incluido</a></li>
-            <li><a href="#seccion4">Más visitados</a></li>
-            <li><a href="#seccion5">Blogs</a></li>
-            <li><a href="#seccion6">Costos</a></li>
-            <li><a href="#seccion9">Testimonios</a></li>
-            <li><a href="#seccion7">Contáctanos</a></li>
-            <li><a href="#seccion8">FAQs</a></li>
-            <li>
-              {user ? (
-                <button className="logout-btn" onClick={handleLogout}>
-                  Cerrar sesión
-                </button>
-              ) : (
-                <button className="login-btn" onClick={() => setShowAuthModal(true)}>
-                  Login
-                </button>
-              )}
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <div className="navbar-content">
+        <div className="navbar-title">ViajesUtsh</div>
+        <ul className="menu">
+          <li><a href="#seccion1">Inicio</a></li>
+          <li><a href="#seccion2">Paquetes</a></li>
+          <li><a href="#seccion3">Todo Incluido</a></li>
+          <li><a href="#seccion4">Más visitados</a></li>
+          <li><a href="#seccion5">Blogs</a></li>
+          <li><a href="#seccion6">Costos</a></li>
 
-      {showAuthModal && (
-        <AuthModal
-          onClose={() => setShowAuthModal(false)}
-          onSuccess={handleLoginSuccess}
-        />
-      )}
-    </>
+          <li><a href="#seccion7">Contactanos</a></li>
+          <li><a href="#seccion8">FAQs</a></li>
+
+  
+          
+    
+          <li>
+            {user ? (
+              <button className="logout-btn" onClick={handleLogout}>
+                Cerrar sesión
+              </button>
+            ) : (
+              <button className="login-btn" onClick={() => window.open('/login', '_blank')}>
+                Login
+              </button>
+            )}
+          </li>
+
+        </ul>
+      </div>
+    </nav>
   );
 };
 

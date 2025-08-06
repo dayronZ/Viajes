@@ -3,9 +3,7 @@ html, body {
   overflow-x: hidden;
 }
 
-body {
-  overflow-x: hidden;
-}
+
 
 
 .navbar {
@@ -185,9 +183,12 @@ body {
     background: rgba(0, 0, 0, 0.8);
     position: absolute;
     top: 60px;
-    right: 0;
-    width: 100%;
-    max-width: 250px;
+
+
+    right: 20px;
+    width: auto;
+    min-width: 200px;
+
     border-radius: 8px;
     overflow: hidden;
     max-height: 0;
