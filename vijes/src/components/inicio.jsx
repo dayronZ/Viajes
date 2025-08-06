@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import AuthModal from './AuthModal.jsx';
 
 const Navbar = () => {
   const [navbarStyle, setNavbarStyle] = useState('light');
@@ -20,7 +19,7 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem('user');
     setUser(null);
-    window.location.reload(); // o redirigir si prefieres
+    window.location.reload(); // Puedes redirigir si lo prefieres
   };
 
   useEffect(() => {
@@ -72,25 +71,24 @@ const Navbar = () => {
           <li><a href="#seccion4">Más visitados</a></li>
           <li><a href="#seccion5">Blogs</a></li>
           <li><a href="#seccion6">Costos</a></li>
-<<<<<<< HEAD
-          <li><a href="#seccion7">Contactanos</a></li>
-          <li><a href="#seccion8">FAQs</a></li>
-=======
           <li><a href="#seccion7">Contáctanos</a></li>
-          
-          {/* Mostrar botón según estado de login */}
+          <li><a href="#seccion8">FAQs</a></li>
+
+          {/* Botón de Login / Logout */}
           <li>
             {user ? (
               <button className="logout-btn" onClick={handleLogout}>
                 Cerrar sesión
               </button>
             ) : (
-              <button className="login-btn" onClick={() => window.open('/login', '_blank')}>
+              <button
+                className="login-btn"
+                onClick={() => window.location.href = '/login'}
+              >
                 Login
               </button>
             )}
           </li>
->>>>>>> 637c59ddb3ac32c8a2433b587c3204f8c1955674
         </ul>
       </div>
     </nav>

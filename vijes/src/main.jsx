@@ -1,8 +1,8 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './index.css';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+
+import './index.css';
 
 import Navbar from './components/inicio.jsx';
 import Seccion1 from './components/seccion1.jsx';
@@ -14,7 +14,6 @@ import Seccion6 from './components/seccion6.jsx';
 import Seccion7 from './components/Seccion7.jsx';
 import Seccion8 from './components/Seccion8.jsx';
 import Seccion9 from './components/seccion9.jsx';
-
 
 import LoginForm from './components/LoginForm.jsx';
 import RegisterForm from './components/RegisterForm.jsx';
@@ -33,7 +32,7 @@ const Home = () => (
   </>
 );
 
-// 👇 Esto es clave para usar la ubicación actual y condicionar el navbar
+// Layout principal con Navbar condicional
 const AppLayout = () => {
   const location = useLocation();
   const hideNavbarPaths = ['/login', '/register', '/recovery'];
@@ -41,48 +40,28 @@ const AppLayout = () => {
 
   return (
     <>
-<<<<<<< HEAD
-      <Navbar />
-      <Seccion1 />
-      <Seccion2 />
-      <Seccion3 />
-      <Seccion4 />
-      <Seccion5 />
-      <Seccion6 />
-      <Seccion7 />
-      <Seccion8 />
-      <Seccion9 />
-=======
       {!shouldHideNavbar && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<LoginForm onSuccess={() => window.location.href = '/'} />} />
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/recovery" element={<RecoveryForm />} />
+        <Route path="/cotizador" element={<Seccion9 />} />
       </Routes>
->>>>>>> 637c59ddb3ac32c8a2433b587c3204f8c1955674
     </>
   );
 };
 
-const App = () => {
-  return (
-    <BrowserRouter>
-      <AppLayout />
-    </BrowserRouter>
-  );
-};
+// App envuelta en Router
+const App = () => (
+  <BrowserRouter>
+    <AppLayout />
+  </BrowserRouter>
+);
 
+// Render
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
-      <Routes>
-      
-        <Route path="/" element={<App />} />
-        
-        
-        <Route path="/cotizador" element={<Seccion9 />} />
-      </Routes>
-    </BrowserRouter>
+    <App />
   </StrictMode>
 );
