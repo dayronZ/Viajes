@@ -13,7 +13,7 @@ import Seccion5 from './components/seccion5.jsx';
 import Seccion6 from './components/seccion6.jsx';
 import Seccion7 from './components/Seccion7.jsx';
 import Seccion8 from './components/Seccion8.jsx';
-import Seccion9 from './components/seccion9.jsx';
+import Seccion10 from './components/seccion10.jsx';
 
 import LoginForm from './components/LoginForm.jsx';
 import RegisterForm from './components/RegisterForm.jsx';
@@ -46,7 +46,7 @@ const AppLayout = () => {
         <Route path="/login" element={<LoginForm onSuccess={() => window.location.href = '/'} />} />
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/recovery" element={<RecoveryForm />} />
-        <Route path="/cotizador" element={<Seccion9 />} />
+        <Route path="/cotizador" element={<Seccion10 />} />
       </Routes>
     </>
   );

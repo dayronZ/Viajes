@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Polyline, Popup } from "react-leaflet";
 import { useNavigate } from "react-router-dom";  // Importa useNavigate
 import "leaflet/dist/leaflet.css";
-import "./seccion9.css"; 
+import "./seccion10.css"; 
 
 const aeropuertos = [
   { id: 1, name: "Estados Unidos (JFK)", lat: 40.6413, lng: -73.7781 },
