@@ -2,6 +2,7 @@
   background-color: #1a1a1a;
   color: white;
   padding: 40px 20px;
+  overflow-x: hidden; 
   overflow-x: hidden; /* Evita desbordes horizontales */
 }
 
@@ -12,8 +13,9 @@
   align-items: center;
   justify-content: space-between;
   gap: 30px;
+  flex-wrap: wrap; 
   flex-wrap: wrap; /* Por si acaso, para pantallas medianas */
-}
+
 
 .oferta-left {
   flex: 1;
@@ -149,4 +151,5 @@
     margin: 0 auto;
     transform: none;
   }
+}
 }

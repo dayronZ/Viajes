@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Seccion8.css';
+import Footer from './Footer.jsx';
 
 const faqs = [
   {
@@ -74,6 +75,7 @@ const Seccion8 = () => {
           ))}
         </div>
       </div>
+      <Footer />
     </section>
   );
 };

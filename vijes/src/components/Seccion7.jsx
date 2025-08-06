@@ -92,9 +92,9 @@ const Seccion7 = () => {
               required
               disabled={isSubmitting}
             />
-            <input 
-              type="email" 
-              placeholder="Tu email..." 
+            <input
+              type="email"
+              placeholder="Tu email..."
               className="contact-input"
               value={formData.email}
               onChange={(e) => handleInputChange('email', e.target.value)}
