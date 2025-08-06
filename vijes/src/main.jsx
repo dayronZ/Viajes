@@ -28,9 +28,9 @@ const Home = () => (
     <Seccion4 />
     <Seccion5 />
     <Seccion6 />
+    <Seccion9 />
     <Seccion7 />
     <Seccion8 />
-    <Seccion9 />
   </>
 );
 
