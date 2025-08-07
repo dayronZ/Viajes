@@ -1,9 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from 'react';
 import './Seccion9.css';
-import { MapContainer, TileLayer, Marker, Polyline, Popup } from "react-leaflet";
-import { useNavigate } from "react-router-dom";
-import "leaflet/dist/leaflet.css";
-import "./seccion10.css";
 
 const testimonios = [
   {
@@ -20,12 +16,12 @@ const testimonios = [
   },
   {
     nombre: 'Camila Ríos',
-    pais: 'Chile 🇨🇱',
+    pais: ' Chile 🇨🇱',
     imagen: 'https://plus.unsplash.com/premium_photo-1663036583472-84bee4a90090?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1fHx8ZW58MHx8fHx8',
     texto: 'Siempre soñé con ver la Torre Eiffel y cuando por fin lo hice, se me salieron las lágrimas. París es tan romántico como lo pintan. Los museos, las calles, los cafés... todo tiene un encanto único. Me enamoré del arte en el Louvre y del ambiente bohemio de Montmartre. Sin duda, una ciudad que hay que vivir al menos una vez.'
   },
   {
-    nombre: 'Javier Soto',
+    nombre: ' Javier Soto',
     pais: 'Perú 🇵🇪',
     imagen: 'https://static.vecteezy.com/system/resources/previews/032/985/943/non_2x/rear-view-of-young-man-looking-at-colosseum-in-rome-italy-male-tourist-standing-in-front-of-a-sandy-beach-and-watching-the-sea-rear-view-full-body-ai-generated-free-photo.jpg',
     texto: 'Italia es historia viva. Desde Roma con su Coliseo hasta los canales de Venecia, todo parece sacado de una película. Amé la comida: la pasta, la pizza, el gelato… ¡es como si cada bocado fuera una obra de arte! Pero más allá de eso, la pasión de los italianos y la belleza de sus ciudades me dejaron con ganas de volver.'
@@ -55,9 +51,9 @@ const Seccion9 = () => {
 
   return (
     <section id="seccion9" className="testimonials-section">
-      <h2 className="testimonials-title">TESTIMONIOS</h2>
-      <h5 className='testimonials-title2'>Escucha lo que dicen nuestros increíbles clientes</h5>
-      
+      <h2 className="testimonials-title">TESTIMONIOS
+      <h5 className='testimonials-title2'>Escucha lo que dicen nuestros increibles clientes </h5>
+      </h2>
       <div className="testimonials-carousel-wrapper" style={{position: 'relative', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
         <button
           className="carousel-arrow left"
@@ -65,14 +61,10 @@ const Seccion9 = () => {
           aria-label="Anterior"
           style={{position: 'absolute', left: 'calc(50% - 410px)', top: '50%', transform: 'translateY(-50%)'}}
         >
-          <span className="arrow-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-              <circle cx="16" cy="16" r="16" fill="#fff"/>
-              <path d="M19.5 24L12.5 16L19.5 8" stroke="#222" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+          <span className="arrow-icon">{/* SVG flecha izquierda */}
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#fff"/><path d="M19.5 24L12.5 16L19.5 8" stroke="#222" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
           </span>
         </button>
-
         <div className="testimonials-carousel">
           {visible.map((t, idx) => (
             <div className="testimonial-card" key={t.nombre + idx}>
@@ -88,22 +80,17 @@ const Seccion9 = () => {
             </div>
           ))}
         </div>
-
         <button
           className="carousel-arrow right"
           onClick={() => goTo((current + 1) % totalSlides)}
           aria-label="Siguiente"
           style={{position: 'absolute', right: 'calc(50% - 410px)', top: '50%', transform: 'translateY(-50%)'}}
         >
-          <span className="arrow-icon">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-              <circle cx="16" cy="16" r="16" fill="#fff"/>
-              <path d="M12.5 8L19.5 16L12.5 24" stroke="#222" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+          <span className="arrow-icon">{/* SVG flecha derecha */}
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#fff"/><path d="M12.5 8L19.5 16L12.5 24" stroke="#222" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
           </span>
         </button>
       </div>
-
       <div className="testimonials-dots">
         {Array.from({ length: totalSlides }).map((_, idx) => (
           <button
@@ -118,4 +105,4 @@ const Seccion9 = () => {
   );
 };
 
-export default Seccion9;
+export default Seccion9; 

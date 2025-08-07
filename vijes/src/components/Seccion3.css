@@ -2,6 +2,7 @@
   background-color: #1a1a1a;
   color: white;
   padding: 40px 20px;
+  overflow-x: hidden; 
   overflow-x: hidden; /* Evita desbordes horizontales */
 }
 
@@ -12,12 +13,11 @@
   align-items: center;
   justify-content: space-between;
   gap: 30px;
+  flex-wrap: wrap; 
   flex-wrap: wrap; /* Por si acaso, para pantallas medianas */
-}
+
 
 .oferta-left {
-  color: white;
-  text-align: center;
   flex: 1;
   min-width: 300px;
 }
@@ -128,13 +128,10 @@
 
   .oferta-left {
     text-align: center;
-    color: white;
-    judge-content: center;
   }
 
   .oferta-buttons {
     justify-content: center;
-    text-align: center;
   }
 
   .oferta-images {
@@ -154,4 +151,5 @@
     margin: 0 auto;
     transform: none;
   }
+}
 }

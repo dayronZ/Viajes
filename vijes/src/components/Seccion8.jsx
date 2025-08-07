@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Seccion8.css';
+import Footer from './Footer.jsx';
 
 const faqs = [
   {
@@ -43,7 +44,6 @@ const Seccion8 = () => {
     setOpenIndex(openIndex === idx ? null : idx);
   };
 
-  // Agrupar preguntas en filas de dos
   const rows = [];
   for (let i = 0; i < faqs.length; i += 2) {
     rows.push([faqs[i], faqs[i + 1]]);
@@ -75,6 +75,7 @@ const Seccion8 = () => {
           ))}
         </div>
       </div>
+      <Footer />
     </section>
   );
 };

@@ -7,7 +7,6 @@ const Seccion4 = () => {
   const [paisSeleccionado, setPaisSeleccionado] = useState("france");
   const paises = ["france", "england", "switzerland", "germany", "italy"];
 
-
   return (
   
     <section className="portfolio-section" id="seccion4">
