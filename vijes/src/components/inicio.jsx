@@ -20,17 +20,13 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem('user');
     setUser(null);
-<<<<<<< HEAD
     window.location.reload(); // Puedes redirigir si lo prefieres
-=======
-    // Si quieres evitar recargar, podrías forzar re-render u otro manejo
   };
 
   const handleLoginSuccess = (loggedInUser) => {
     localStorage.setItem('user', JSON.stringify(loggedInUser));
     setUser(loggedInUser);
     setShowAuthModal(false);
->>>>>>> d9ca9956847b76c0819d93b5dc74a05d6b1294a0
   };
 
   useEffect(() => {
@@ -43,7 +39,10 @@ const Navbar = () => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.offsetHeight;
 
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        if (
+          scrollPosition >= sectionTop &&
+          scrollPosition < sectionTop + sectionHeight
+        ) {
           currentSection = section;
         }
       });
@@ -62,17 +61,17 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // init
+    handleScroll(); // Inicializar
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-      <nav className={`navbar navbar-${navbarStyle}`}>
-        <link rel="stylesheet" href="./nav.css" />
-        <input type="checkbox" id="menu-toggle" className="menu-toggle" aria-label="Toggle menu" />
-        <label htmlFor="menu-toggle" className="menu-icon" aria-label="Menú de navegación">
-          &#9776;
-        </label>
+    <nav className={`navbar navbar-${navbarStyle}`}>
+      <link rel="stylesheet" href="./nav.css" />
+      <input type="checkbox" id="menu-toggle" className="menu-toggle" aria-label="Toggle menu" />
+      <label htmlFor="menu-toggle" className="menu-icon" aria-label="Menú de navegación">
+        &#9776;
+      </label>
 
       <div className="navbar-content">
         <div className="navbar-title">ViajesUtsh</div>
@@ -83,20 +82,9 @@ const Navbar = () => {
           <li><a href="#seccion4">Más visitados</a></li>
           <li><a href="#seccion5">Blogs</a></li>
           <li><a href="#seccion6">Costos</a></li>
-<<<<<<< HEAD
           <li><a href="#seccion7">Contáctanos</a></li>
           <li><a href="#seccion8">FAQs</a></li>
 
-          {/* Botón de Login / Logout */}
-=======
-
-          <li><a href="#seccion7">Contactanos</a></li>
-          <li><a href="#seccion8">FAQs</a></li>
-
-  
-          
-    
->>>>>>> d9ca9956847b76c0819d93b5dc74a05d6b1294a0
           <li>
             {user ? (
               <button className="logout-btn" onClick={handleLogout}>
@@ -111,10 +99,6 @@ const Navbar = () => {
               </button>
             )}
           </li>
-<<<<<<< HEAD
-=======
-
->>>>>>> d9ca9956847b76c0819d93b5dc74a05d6b1294a0
         </ul>
       </div>
     </nav>
