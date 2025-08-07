@@ -1,6 +1,6 @@
 .testimonials-section {
     background: #f4f4f4;
-    padding: 60px 0 60px 0;
+    padding: 60px 20px;
     min-height: 60vh;
     display: flex;
     flex-direction: column;
@@ -13,7 +13,7 @@
     font-size: 1.5rem;
     font-weight: 600;
     letter-spacing: 1.5px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     text-align: center;
     position: relative;
   }
@@ -21,7 +21,9 @@
   .testimonials-title2{
     color: #5c5757;
     font-size: 1.3rem;
-    font-family:cursive
+    font-family:cursive;
+    margin-bottom: 40px;
+    text-align: center;
   }
   
   .testimonials-title::after {
@@ -76,6 +78,16 @@
     box-shadow: 0 2px 16px rgba(30, 34, 90, 0.10);
     margin-bottom: 0;
     margin-left: 0;
+    flex-shrink: 0;
+  }
+  
+  .testimonial-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 18px;
   }
   
   .testimonial-text {
@@ -84,6 +96,8 @@
     font-weight: 700;
     margin-bottom: 8px;
     margin-top: 0;
+    line-height: 1.4;
+    text-align: justify;
   }
   
   .testimonial-description {
@@ -91,6 +105,8 @@
     font-size: 1.05rem;
     margin-bottom: 18px;
     margin-top: 0;
+    line-height: 1.5;
+    text-align: justify;
   }
   
   .testimonial-name {
@@ -188,42 +204,157 @@
     background: #f7f7f7;
   }
   
-  @media (max-width: 1100px) {
-    .testimonials-carousel {
-      gap: 18px;
-    }
+  /* Tablets grandes */
+  @media (max-width: 1200px) {
     .testimonial-card {
-      width: 260px;
-      max-width: 98vw;
-      padding: 28px 10px 18px 10px;
+      width: 500px;
+      padding: 40px 40px 32px 40px;
+      gap: 24px;
+    }
+    .testimonial-img {
+      width: 160px;
+      height: 160px;
+    }
+    .testimonial-text {
+      font-size: 1.25rem;
+    }
+    .testimonial-description {
+      font-size: 1rem;
     }
   }
   
-  @media (max-width: 800px) {
-    .testimonials-carousel {
-      flex-direction: column;
-      align-items: center;
-      gap: 0;
+  /* Tablets medianas */
+  @media (max-width: 900px) {
+    .testimonials-section {
+      padding: 40px 20px;
     }
     .testimonial-card {
-      flex-direction: column;
-      align-items: center;
-      padding: 28px 10px 18px 10px;
-      width: 98vw;
-      min-width: unset;
-      max-width: 98vw;
-      gap: 18px;
+      width: 450px;
+      padding: 32px 32px 24px 32px;
+      gap: 20px;
+    }
+    .testimonial-img {
+      width: 140px;
+      height: 140px;
+    }
+    .testimonial-text {
+      font-size: 1.15rem;
+    }
+    .testimonial-description {
+      font-size: 0.95rem;
+    }
+    .carousel-arrow .arrow-icon {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  
+  /* Tablets pequeñas */
+  @media (max-width: 768px) {
+    .testimonials-title {
+      font-size: 1.3rem;
+    }
+    .testimonials-title2 {
+      font-size: 1.1rem;
+    }
+    .testimonial-card {
+      width: 90vw;
+      max-width: 400px;
+      padding: 28px 24px 20px 24px;
+      gap: 16px;
     }
     .testimonial-img {
       width: 120px;
       height: 120px;
-      margin: 0 auto 0 auto;
+    }
+    .testimonial-text {
+      font-size: 1.1rem;
+    }
+    .testimonial-description {
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* Móviles grandes */
+  @media (max-width: 600px) {
+    .testimonials-section {
+      padding: 30px 15px;
+    }
+    .testimonial-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 95vw;
+      max-width: 350px;
+      padding: 24px 20px 16px 20px;
+      gap: 16px;
+      min-height: auto;
+    }
+    .testimonial-img {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto;
     }
     .testimonial-content {
       align-items: center;
       text-align: center;
+      gap: 12px;
+    }
+    .testimonial-text {
+      font-size: 1rem;
+      text-align: justify;
+    }
+    .testimonial-description {
+      font-size: 0.85rem;
+      text-align: justify;
+    }
+    .testimonial-name {
+      font-size: 1rem;
+    }
+    .testimonial-country {
+      font-size: 0.9rem;
     }
     .carousel-arrow {
       display: none;
+    }
+  }
+  
+  /* Móviles pequeños */
+  @media (max-width: 480px) {
+    .testimonials-title {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+    .testimonials-title2 {
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
+    .testimonial-card {
+      width: 98vw;
+      max-width: 320px;
+      padding: 20px 16px 12px 16px;
+      gap: 12px;
+    }
+    .testimonial-img {
+      width: 80px;
+      height: 80px;
+    }
+    .testimonial-text {
+      font-size: 0.95rem;
+      text-align: justify;
+    }
+    .testimonial-description {
+      font-size: 0.8rem;
+      text-align: justify;
+    }
+    .testimonial-name {
+      font-size: 0.95rem;
+    }
+    .testimonial-country {
+      font-size: 0.85rem;
+    }
+    .dot {
+      width: 10px;
+      height: 10px;
     }
   } 
