@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles/loginForm.css';
+import './loginCard.css';
 
 const LoginForm = ({ onSuccess }) => {
   const [loginData, setLoginData] = useState({ email: '', password: '' });
@@ -41,11 +42,29 @@ const LoginForm = ({ onSuccess }) => {
   return (
     <div className="login-form-wrapper">
       <div className="login-form-container">
-        <form className="login-auth-form" onSubmit={handleLogin}>
-          <h2 className="login-form-title">Iniciar Sesión</h2>
+        <div className="card-container">
+          <img
+            src="/src/assets/loginCard.png" // O usa import si la imagen está en tu proyecto
+            alt="París ilustración"
+            className="card-image"
+          />
+          <div className="card-description">
+            <ul>
+              <li>Accede a precios accesibles</li>
+              <li>Viaja a lugares icónicos</li>
+              <li>Obtén la seguridad de viajar con nosotros</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+      <div className="login-links-container">
+      <form className="login-auth-form" onSubmit={handleLogin}>
+          <h2 className="login-form-title">Inicia sesión</h2>
           
           <div className="input-group">
-            <label htmlFor="email">Email</label>
+            
             <input
               className="login-input"
               id="email"
@@ -70,34 +89,19 @@ const LoginForm = ({ onSuccess }) => {
               required
               placeholder="••••••••"
             />
+            
           </div>
+          <button className="login-link-btn" type="button" onClick={() => navigate('/recovery')}>¿Olvidaste tu contraseña?</button>
           
           <button className="login-btn-submit" type="submit" disabled={loading}>
-            {loading ? 'Ingresando...' : 'Ingresar'}
+            {loading ? 'Iniciando...' : 'Iniciar Sesión'}
           </button>
+          <button className="login-link-btn" type="button" onClick={() => navigate('/register')}>No tengo una cuenta</button>
+
+          
           
           {message && <div className={`login-auth-message ${message.includes('exitoso') ? 'success' : 'error'}`}>{message}</div>}
         </form>
-      </div>
-
-      <div className="login-links-container">
-        <div className="login-auth-links">
-          <div className="link-group">
-            <span className="login-link-text">¿No tienes cuenta?</span>
-            <button className="login-link-btn" type="button" onClick={() => navigate('/register')}>Regístrate</button>
-          </div>
-          
-          <div className="link-group">
-            <span className="login-link-text">¿Olvidaste tu contraseña?</span>
-            <button className="login-link-btn" type="button" onClick={() => navigate('/recovery')}>Recuperar</button>
-          </div>
-          
-          <div className="link-group">
-            <button className="login-link-btn back-btn" type="button" onClick={() => navigate('/')}>
-              <span className="back-arrow">←</span> Regresar al inicio
-            </button>
-          </div>
-        </div>
       </div>
     </div>
   );

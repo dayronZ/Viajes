@@ -4,17 +4,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #f0f8ff 0%, #e6f7e6 100%);
+    background: white;
     padding: 20px;
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
+    gap: 40px;
   }
   
   .recovery-form {
     background: #fff;
     border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(138, 245, 124, 0.2);
     padding: 3rem 2.5rem;
     display: flex;
     flex-direction: column;
@@ -33,7 +33,7 @@
     left: 0;
     right: 0;
     height: 6px;
-    background: linear-gradient(90deg, #8af57c 0%, #66cc33 100%);
+   
   }
   
   .recovery-label {
@@ -44,6 +44,7 @@
     color: #555;
     font-weight: 500;
     margin-left: 2px;
+    padding-bottom: 20px;
   }
   
   .recovery-input {
@@ -76,11 +77,11 @@
   }
   
   .recovery-btn {
-    background: #8af57c;
+    background: #a2c18c;
     color: #222;
     border: none;
     border-radius: 10px;
-    padding: 16px 0;
+    padding: 16px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -135,10 +136,10 @@
   }
   
   .recovery-form-title {
-    text-align: center;
-    margin: 0 0 1.5rem 0;
+
+    margin: 0 0 0rem 0;
     color: #333;
-    font-size: 1.75rem;
+    font-size: 20px;
     font-weight: 600;
     position: relative;
   }
@@ -151,7 +152,7 @@
     transform: translateX(-50%);
     width: 60px;
     height: 4px;
-    background: linear-gradient(90deg, #8af57c 0%, #66cc33 100%);
+
     border-radius: 2px;
   }
   
@@ -171,33 +172,24 @@
   }
   
   .recovery-links {
-    text-align: center;
+    text-align: left;
     margin-top: 1.5rem;
     color: #555;
     font-size: 0.95rem;
   }
   
   .recovery-link {
-    color: #66cc33;
+    color: #a2c18c;
     cursor: pointer;
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.3s ease;
+    
     position: relative;
     display: inline-block;
-    margin: 0 10px;
+    
   }
   
-  .recovery-link::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #8af57c;
-    transition: width 0.3s ease;
-  }
+
   
   .recovery-link:hover {
     color: #4aa82e;
@@ -234,6 +226,12 @@
     }
     
     .recovery-btn {
-      padding: 14px 0;
+      padding: 14px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .recovery-form-container {
+      display: none;
     }
   }
