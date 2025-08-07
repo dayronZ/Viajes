@@ -2,35 +2,35 @@
 .login-form-wrapper {
   min-height: 100vh;
   display: flex;
-  background: linear-gradient(135deg, #f0f8ff 0%, #e6f7e6 100%);
+  justify-content: center;
+  align-items: center;
+  background: white;
   padding: 20px;
-  box-sizing: border-box;
-  position: relative;
-  overflow: hidden;
+  gap: 40px; /* 🔧 agrega esta línea o reduce si ya existe */
 }
+
 
 .login-form-container {
   flex: 1;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
+  justify-content: right;
+  align-items: right;
+  padding: 0rem;
 }
 
 .login-links-container {
   flex: 1;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.7);
+  justify-content: left;
+  align-items: left;
+  padding: 0rem;
+  
   backdrop-filter: blur(10px);
 }
 
 .login-auth-form {
   background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(138, 245, 124, 0.2);
+
   padding: 3.5rem 2.5rem 2.5rem;
   display: flex;
   flex-direction: column;
@@ -49,15 +49,15 @@
   left: 0;
   right: 0;
   height: 6px;
-  background: linear-gradient(90deg, #8af57c 0%, #66cc33 100%);
+  
 }
 
 .login-form-title {
-  text-align: center;
+  text-align: left;
   margin: 0 0 1rem 0;
-  color: #333;
-  font-size: 1.75rem;
-  font-weight: 600;
+  color: #040404;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .input-group {
@@ -97,8 +97,8 @@
 }
 
 .login-btn-submit {
-  background: #8af57c;
-  color: #222;
+  background: #99C68E;
+  color: #ffffff;
   border: none;
   border-radius: 10px;
   padding: 16px 0;
@@ -176,18 +176,19 @@
 }
 
 .login-link-btn {
+  display: inline-block;
+  width: auto;
   background: none;
   border: none;
-  color: #66cc33;
+  color: #99C68E;
   cursor: pointer;
-  text-decoration: none;
+  text-decoration: underline;
   padding: 0;
-  font-size: 1.05rem;
+  font-size: 16px;
   font-weight: 600;
   transition: all 0.3s ease;
   font-family: inherit;
-  position: relative;
-  display: inline-block;
+  text-align: right;
 }
 
 .login-link-btn::after {
@@ -248,5 +249,11 @@
   .login-links-container {
     background: transparent;
     backdrop-filter: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-form-container {
+    display: none;
   }
 }
