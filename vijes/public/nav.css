@@ -1,3 +1,4 @@
+
 html, body {
   overflow-x: hidden;
 }
@@ -180,26 +181,36 @@ html, body {
   cursor: pointer;
 }
 
-/* RESPONSIVE */
+/* Mostrar solo en pantallas pequeñas */
 @media (max-width: 768px) {
-  .navbar {
-    justify-content: space-between;
-    padding: 15px 20px;
+  .menu-toggle-btn {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2100;
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
   }
 
-  .navbar-content {
-    padding-left: 0;
-    justify-content: space-between;
-  }
-
-  .navbar-title {
-    font-size: 1.4rem;
-  }
-
-  .menu {
-    flex-direction: column;
-    align-items: center;
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
     background: rgba(0, 0, 0, 0.8);
+
+    width: 100vw;
+    height: 100vh;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     position: absolute;
     top: 60px;
     right: 0;
@@ -214,32 +225,59 @@ html, body {
     opacity: 0;
     transition: max-height 0.5s ease, opacity 0.5s ease;
     transform: translateX(0);
+
   }
 
-  .menu-toggle:checked + .menu-icon + .menu {
-    max-height: 300px;
-    opacity: 1;
+  .modal-menu {
+    background: #111;
+    border-radius: 12px;
+    padding: 20px 30px;
+    width: 90%;
+    max-width: 300px;
+    position: relative;
   }
 
-  .menu li {
-    margin: 6px 0;
+  .modal-menu .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Asegura que los enlaces estén en columna */
   }
 
-  .menu li a {
-    font-size: 1rem;
-    padding: 8px 16px;
-    width: 100%;
+  .modal-menu .menu li {
+    margin: 12px 0;
     text-align: center;
   }
 
-  .menu li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+  .modal-menu .menu li a {
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
   }
 
-  .menu-icon {
-    display: block;
-    font-size: 1.5rem;
-    cursor: pointer;
+  .modal-menu .menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .close-modal {
+    position: absolute;
+    top: 10px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
     color: white;
+    cursor: pointer;
   }
 }
+
+/* Ocultar el botón en pantallas grandes */
+.menu-toggle-btn {
+  display: none;
+}
+
