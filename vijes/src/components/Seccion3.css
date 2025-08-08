@@ -1,0 +1,155 @@
+.oferta-section {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 40px 20px;
+  overflow-x: hidden; 
+  overflow-x: hidden; /* Evita desbordes horizontales */
+}
+
+.oferta-content {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap; 
+  flex-wrap: wrap; /* Por si acaso, para pantallas medianas */
+
+
+.oferta-left {
+  flex: 1;
+  min-width: 300px;
+}
+
+.oferta-left h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.oferta-left p {
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: #ccc;
+}
+
+.oferta-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.btn-discover,
+.btn-purchase {
+  padding: 14px 28px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.btn-discover {
+  background-color: #fff;
+  color: #000;
+}
+
+.btn-discover:hover {
+  background-color: #e5e5e5;
+}
+
+.btn-purchase {
+  background-color: #8af57c;
+  color: #000;
+}
+
+.btn-purchase:hover {
+  background-color: #70dd66;
+}
+
+.oferta-images {
+  flex: 1;
+  position: relative;
+  height: 480px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img {
+  position: absolute;
+  width: clamp(200px, 30vw, 320px);
+  height: auto;
+  max-width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+/* Imagen central (al frente) */
+.img2 {
+  z-index: 3;
+  top: 100px;
+  left: 120px;
+}
+
+/* Imagen superior izquierda */
+.img1 {
+  z-index: 2;
+  top: 30px;
+  left: 0px;
+}
+
+/* Imagen inferior derecha */
+.img3 {
+  z-index: 1;
+  top: 180px;
+  left: 240px;
+}
+
+/* Ajustes en pantallas medianas */
+@media (max-width: 1024px) {
+  .oferta-images {
+    height: 400px;
+  }
+  .img1 { left: 20px; }
+  .img2 { left: 80px; }
+  .img3 { left: 160px; }
+}
+
+/* Ajustes en pantallas chicas */
+@media (max-width: 768px) {
+  .oferta-content {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .oferta-left {
+    text-align: center;
+  }
+
+  .oferta-buttons {
+    justify-content: center;
+  }
+
+  .oferta-images {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: static;
+    height: auto;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .img {
+    position: static;
+    width: 80%;
+    max-width: 250px;
+    margin: 0 auto;
+    transform: none;
+  }
+}
+}

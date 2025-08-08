@@ -6,7 +6,9 @@ export const useContactForm = () => {
     name: '',
     email: '',
     destination: '',
-    message: ''
+    message: '',
+    date: '', // nuevo campo
+    time: '', // nuevo campo
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -43,7 +45,7 @@ export const useContactForm = () => {
     e.preventDefault();
     
     // Validación básica
-    if (!formData.name || !formData.email || !formData.destination || !formData.message) {
+    if (!formData.name || !formData.email || !formData.destination || !formData.message || !formData.date || !formData.time) {
       showNotification('error', 'Por favor, completa todos los campos');
       return;
     }
@@ -53,20 +55,30 @@ export const useContactForm = () => {
 
     try {
       await apiService.submitContactForm(formData);
-      showNotification('success', '¡Formulario enviado exitosamente! Redirigiendo a Calendly...');
+      showNotification('success', '¡Formulario enviado exitosamente! Abriendo Calendly en nueva pestaña...');
       
       // Limpiar formulario después del éxito
       setFormData({
         name: '',
         email: '',
         destination: '',
-        message: ''
+        message: '',
+        date: '',
+        time: '',
       });
       
-      // Redirigir a Calendly después de un breve delay
+      // Abrir Calendly en nueva pestaña después de un breve delay con fecha/hora y prefill de nombre/email
       setTimeout(() => {
-        const calendlyLink = 'https://calendly.com/2022023-utsh/agenda-tu-vuelo';
-        window.location.href = calendlyLink;
+        let calendlyLink = 'https://calendly.com/2022023-utsh/agenda-tu-vuelo';
+        if (formData.date && formData.time) {
+          // Combinar fecha y hora, y forzar zona horaria -05:00
+          const [year, month, day] = formData.date.split('-');
+          const [hour, min] = formData.time.split(':');
+          const calendlyDateTime = `${year}-${month}-${day}T${hour}:${min}:00-05:00`;
+          calendlyLink += `/${calendlyDateTime}?month=${year}-${month}&date=${year}-${month}-${day}`;
+          calendlyLink += `&name=${encodeURIComponent(formData.name)}&email=${encodeURIComponent(formData.email)}`;
+        }
+        window.open(calendlyLink, '_blank');
       }, 3000);
       
     } catch (error) {

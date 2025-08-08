@@ -1,0 +1,154 @@
+/* seccion10.css */
+
+/* Reset básico para fuentes y márgenes */
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.cotizador-container {
+  max-width: 900px;
+  margin: 30px auto 50px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 30px 40px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.cotizador-title {
+  color: black;
+  font-weight: 700;
+  margin-bottom: 25px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.cotizador-form-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.cotizador-form-group {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cotizador-form-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: black;
+}
+
+.cotizador-form-group select,
+.cotizador-form-group input[type="date"],
+.cotizador-form-group input[type="number"] {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1.5px solid #c0c0c0;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.cotizador-form-group select:focus,
+.cotizador-form-group input[type="date"]:focus,
+.cotizador-form-group input[type="number"]:focus {
+  outline: none;
+  border-color: #0070c9;
+  box-shadow: 0 0 6px rgba(0, 112, 201, 0.3);
+}
+
+.cotizador-checkbox-group {
+  margin-top: 20px;
+  font-weight: 600;
+  color: black;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.cotizador-checkbox-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.cotizador-map-wrapper {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  margin-top: 25px;
+}
+
+/* Lista de vuelos */
+.cotizador-vuelos-list {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cotizador-vuelo-card {
+  background: #f0f4fb;
+  border-left: 6px solid #0070c9;
+  padding: 16px 22px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,112,201,0.1);
+  font-size: 1rem;
+  color: black;
+  cursor: default;
+  transition: box-shadow 0.25s ease;
+}
+
+.cotizador-vuelo-card:focus,
+.cotizador-vuelo-card:hover {
+  box-shadow: 0 6px 18px rgba(0,112,201,0.3);
+  outline: none;
+}
+
+/* Mensaje informativo */
+.cotizador-mensaje-info {
+  color: #777;
+  font-style: italic;
+  text-align: center;
+  margin-top: 12px;
+  font-size: 1rem;
+}
+
+/* Botón regresar */
+.cotizador-button {
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  background-color: #8af57c;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  user-select: none;
+
+}
+
+.cotizador-button:hover {
+  background-color: #8af57c;
+}
+
+/* Responsive */
+@media (max-width: 680px) {
+  .cotizador-form-flex {
+    flex-direction: column;
+  }
+  .cotizador-form-group {
+    flex: 1 1 100%;
+  }
+}
