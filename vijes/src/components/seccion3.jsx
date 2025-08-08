@@ -22,9 +22,7 @@ const Seccion3 = () => {
             ¡Personaliza tu viaje, elige opciones extra y encuentra la mejor oferta disponible en segundos!
           </p>
           <div className="oferta-buttons">
-            <button className="btn-discover" onClick={manejarRedireccion}>
-              DESCUBRIR
-            </button>
+        
             <button className="btn-purchase" onClick={manejarRedireccion}>
               COTIZAR AHORA
             </button>
