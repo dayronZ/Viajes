@@ -7,7 +7,19 @@ const Navbar = () => {
 
   const [navbarStyle, setNavbarStyle] = useState('light');
   const [user, setUser] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
+  // Detectar cambio de tamaño para actualizar isMobile
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Cargar usuario desde localStorage
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
@@ -20,12 +32,15 @@ const Navbar = () => {
     }
   }, []);
 
+  // Logout
   const handleLogout = () => {
     localStorage.removeItem('user');
     setUser(null);
-    navigate('/login'); // Navegar sin recargar la página
+    navigate('/login');
+    setShowModal(false);
   };
 
+  // Cambiar estilo navbar según scroll y secciones
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 100;
@@ -58,77 +73,97 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Inicializar
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // No renderizar navbar en ruta /cotizador ni subrutas
   if (location.pathname.startsWith('/cotizador')) {
     return null;
   }
 
   return (
-    <nav className={`navbar navbar-${navbarStyle}`}>
-      <link rel="stylesheet" href="./nav.css" />
-      <input
-        type="checkbox"
-        id="menu-toggle"
-        className="menu-toggle"
-        aria-label="Toggle menu"
-      />
-      <label
-        htmlFor="menu-toggle"
-        className="menu-icon"
-        aria-label="Menú de navegación"
-      >
-        &#9776;
-      </label>
+    <>
+      <nav className={`navbar navbar-${navbarStyle}`}>
+        <link rel="stylesheet" href="./nav.css" />
 
-      <div className="navbar-content">
-        <div className="navbar-title">ViajesUtsh</div>
-        <ul className="menu">
-          <li>
-            <a href="#seccion1">Inicio</a>
-          </li>
-          <li>
-            <a href="#seccion2">Paquetes</a>
-          </li>
-          <li>
-            <a href="#seccion3">Todo Incluido</a>
-          </li>
-          <li>
-            <a href="#seccion4">Más visitados</a>
-          </li>
-          <li>
-            <a href="#seccion5">Blogs</a>
-          </li>
-          <li>
-            <a href="#seccion6">Costos</a>
-          </li>
-          <li>
-            <a href="#seccion7">Contáctanos</a>
-          </li>
-          <li>
-            <a href="#seccion8">FAQs</a>
-          </li>
+        <div className="navbar-content">
+          {isMobile ? (
+            <button
+              className="navbar-title"
+              style={{ background: 'none', border: 'none', cursor: 'pointer' }}
+              onClick={() => setShowModal(true)}
+              aria-label="Abrir menú"
+            >
+              ViajesUtsh
+            </button>
+          ) : (
+            <div className="navbar-title">ViajesUtsh</div>
+          )}
 
-          <li>
-            {user ? (
-              <button className="logout-btn" onClick={handleLogout}>
-                Cerrar sesión
-              </button>
-            ) : (
-              <button
-                className="login-btn"
-                onClick={() => navigate('/login')}
-              >
-                Login
-              </button>
-            )}
-          </li>
-        </ul>
-      </div>
-    </nav>
+          {!isMobile && (
+            <ul className="menu">
+              <li><a href="#seccion1">Inicio</a></li>
+              <li><a href="#seccion2">Paquetes</a></li>
+              <li><a href="#seccion3">Todo Incluido</a></li>
+              <li><a href="#seccion4">Más visitados</a></li>
+              <li><a href="#seccion5">Blogs</a></li>
+              <li><a href="#seccion6">Costos</a></li>
+              <li><a href="#seccion7">Contáctanos</a></li>
+              <li><a href="#seccion8">FAQs</a></li>
+              <li>
+                {user ? (
+                  <button className="logout-btn" onClick={handleLogout}>
+                    Cerrar sesión
+                  </button>
+                ) : (
+                  <button className="login-btn" onClick={() => navigate('/login')}>
+                    Login
+                  </button>
+                )}
+              </li>
+            </ul>
+          )}
+        </div>
+      </nav>
+
+      {isMobile && showModal && (
+        <div className="modal-overlay" onClick={() => setShowModal(false)}>
+          <div className="modal-menu" onClick={(e) => e.stopPropagation()}>
+            <button className="close-modal" onClick={() => setShowModal(false)}>
+              &times;
+            </button>
+            <ul className="menu">
+              <li><a href="#seccion1" onClick={() => setShowModal(false)}>Inicio</a></li>
+              <li><a href="#seccion2" onClick={() => setShowModal(false)}>Paquetes</a></li>
+              <li><a href="#seccion3" onClick={() => setShowModal(false)}>Cotiza</a></li>
+              <li><a href="#seccion4" onClick={() => setShowModal(false)}>Más visitados</a></li>
+              <li><a href="#seccion5" onClick={() => setShowModal(false)}>Blogs</a></li>
+              <li><a href="#seccion6" onClick={() => setShowModal(false)}>Costos</a></li>
+              <li><a href="#seccion9" onClick={() => setShowModal(false)}>Testimonios</a></li>
+              <li><a href="#seccion7" onClick={() => setShowModal(false)}>Contáctanos</a></li>
+              <li><a href="#seccion8" onClick={() => setShowModal(false)}>FAQs</a></li>
+              <li>
+                {user ? (
+                  <button className="logout-btn" onClick={handleLogout}>
+                    Cerrar sesión
+                  </button>
+                ) : (
+                  <button
+                    className="login-btn"
+                    onClick={() => {
+                      navigate('/login');
+                      setShowModal(false);
+                    }}
+                  >
+                    Login
+                  </button>
+                )}
+              </li>
+            </ul>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
