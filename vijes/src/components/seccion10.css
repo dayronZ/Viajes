@@ -21,7 +21,7 @@ body, html, #root {
 }
 
 .cotizador-title {
-  color: #004b8d;
+  color: black;
   font-weight: 700;
   margin-bottom: 25px;
   text-align: center;
@@ -44,7 +44,7 @@ body, html, #root {
 .cotizador-form-group label {
   font-weight: 600;
   margin-bottom: 6px;
-  color: #004b8d;
+  color: black;
 }
 
 .cotizador-form-group select,
@@ -68,7 +68,7 @@ body, html, #root {
 .cotizador-checkbox-group {
   margin-top: 20px;
   font-weight: 600;
-  color: #004b8d;
+  color: black;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -104,7 +104,7 @@ body, html, #root {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,112,201,0.1);
   font-size: 1rem;
-  color: #004b8d;
+  color: black;
   cursor: default;
   transition: box-shadow 0.25s ease;
 }
@@ -129,18 +129,18 @@ body, html, #root {
   font-weight: 600;
   font-size: 1rem;
   transition: background-color 0.3s ease;
-  background-color: #0b3d91;
-  color: white;
+  background-color: #8af57c;
+  color: black;
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
   user-select: none;
-  box-shadow: 0 4px 12px rgba(11,61,145,0.6);
+
 }
 
 .cotizador-button:hover {
-  background-color: #005aaf;
+  background-color: #8af57c;
 }
 
 /* Responsive */
