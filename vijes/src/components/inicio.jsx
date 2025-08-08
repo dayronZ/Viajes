@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const [navbarStyle, setNavbarStyle] = useState('light');
   const [user, setUser] = useState(null);
-  const [showAuthModal, setShowAuthModal] = useState(false);
 
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
@@ -20,13 +23,7 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem('user');
     setUser(null);
-    window.location.reload(); // Puedes redirigir si lo prefieres
-  };
-
-  const handleLoginSuccess = (loggedInUser) => {
-    localStorage.setItem('user', JSON.stringify(loggedInUser));
-    setUser(loggedInUser);
-    setShowAuthModal(false);
+    navigate('/login'); // Navegar sin recargar la página
   };
 
   useEffect(() => {
@@ -65,25 +62,55 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // No renderizar navbar en ruta /cotizador ni subrutas
+  if (location.pathname.startsWith('/cotizador')) {
+    return null;
+  }
+
   return (
     <nav className={`navbar navbar-${navbarStyle}`}>
       <link rel="stylesheet" href="./nav.css" />
-      <input type="checkbox" id="menu-toggle" className="menu-toggle" aria-label="Toggle menu" />
-      <label htmlFor="menu-toggle" className="menu-icon" aria-label="Menú de navegación">
+      <input
+        type="checkbox"
+        id="menu-toggle"
+        className="menu-toggle"
+        aria-label="Toggle menu"
+      />
+      <label
+        htmlFor="menu-toggle"
+        className="menu-icon"
+        aria-label="Menú de navegación"
+      >
         &#9776;
       </label>
 
       <div className="navbar-content">
         <div className="navbar-title">ViajesUtsh</div>
         <ul className="menu">
-          <li><a href="#seccion1">Inicio</a></li>
-          <li><a href="#seccion2">Paquetes</a></li>
-          <li><a href="#seccion3">Todo Incluido</a></li>
-          <li><a href="#seccion4">Más visitados</a></li>
-          <li><a href="#seccion5">Blogs</a></li>
-          <li><a href="#seccion6">Costos</a></li>
-          <li><a href="#seccion7">Contáctanos</a></li>
-          <li><a href="#seccion8">FAQs</a></li>
+          <li>
+            <a href="#seccion1">Inicio</a>
+          </li>
+          <li>
+            <a href="#seccion2">Paquetes</a>
+          </li>
+          <li>
+            <a href="#seccion3">Todo Incluido</a>
+          </li>
+          <li>
+            <a href="#seccion4">Más visitados</a>
+          </li>
+          <li>
+            <a href="#seccion5">Blogs</a>
+          </li>
+          <li>
+            <a href="#seccion6">Costos</a>
+          </li>
+          <li>
+            <a href="#seccion7">Contáctanos</a>
+          </li>
+          <li>
+            <a href="#seccion8">FAQs</a>
+          </li>
 
           <li>
             {user ? (
@@ -93,7 +120,7 @@ const Navbar = () => {
             ) : (
               <button
                 className="login-btn"
-                onClick={() => window.location.href = '/login'}
+                onClick={() => navigate('/login')}
               >
                 Login
               </button>
