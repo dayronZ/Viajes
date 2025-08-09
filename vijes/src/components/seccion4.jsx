@@ -10,7 +10,7 @@ const Seccion4 = () => {
   return (
   
     <section className="portfolio-section" id="seccion4">
-      <h2 className="portfolio-title">Mas visitados</h2>
+      <h2 className="portfolio-title">Mas Visitados</h2>
       <div className="portfolio-filters">
         {paises.map((pais) => (
             <span

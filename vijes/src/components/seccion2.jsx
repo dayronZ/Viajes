@@ -37,7 +37,7 @@ const Seccion2 = () => {
 
   return (
     <section id="seccion2" className="travel-package-section">
-      <h2 className="travel-package-title">PAQUETES DE VIAJES</h2>
+      <h2 className="travel-package-title">Paquetes de Viajes</h2>
       <div className="travel-package-cards">
         <div className="travel-package-card" onClick={() => handleCardClick('Bolivia')} style={{cursor:'pointer'}}>
           <span className="travel-package-icon">

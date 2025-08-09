@@ -51,7 +51,7 @@ const Seccion9 = () => {
 
   return (
     <section id="seccion9" className="testimonials-section">
-      <h2 className="testimonials-title">TESTIMONIOS
+      <h2 className="testimonials-title">Testimonios
       <h5 className='testimonials-title2'>Escucha lo que dicen nuestros increibles clientes </h5>
       </h2>
       <div className="testimonials-carousel-wrapper" style={{position: 'relative', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
