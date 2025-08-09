@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -79,6 +80,21 @@ const Navbar = () => {
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
         crossOrigin="anonymous"
       />
+
+      {/* Custom global styles to remove body margin and prevent white line */}
+      <style>{`
+        body, html, #root {
+          margin: 0;
+          padding: 0;
+          background-color: #111; /* Match modal bg or navbar dark bg */
+          overflow-x: hidden;
+        }
+        /* Remove any extra margin/padding on navbar-toggler in mobile */
+        .navbar-toggler {
+          border: none;
+          outline: none;
+        }
+      `}</style>
 
       <nav
         className={`navbar navbar-expand-lg ${
