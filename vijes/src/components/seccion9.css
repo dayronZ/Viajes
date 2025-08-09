@@ -104,6 +104,11 @@
     margin-top: 0;
     text-align: justify;
     text-justify: inter-word;
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    word-break: normal;
+    overflow-wrap: normal;
   }
   
   .testimonial-description {
@@ -113,10 +118,11 @@
     margin-top: 0;
     text-align: justify;
     text-justify: inter-word;
-    hyphens: auto;
-    -webkit-hyphens: auto;
-    -ms-hyphens: auto;
-    overflow-wrap: anywhere;
+    hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    word-break: normal;
+    overflow-wrap: normal;
   }
   
   .testimonial-name {
