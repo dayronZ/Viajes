@@ -92,10 +92,20 @@
   color: #fff;
   font-size: 1rem;
   margin-bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .contact-input::placeholder {
   color: #bbb;
+}
+
+/* Accesible focus state (evita el contorno naranja del navegador) */
+.contact-input:focus,
+.contact-textarea:focus,
+select.contact-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(163, 210, 142, 0.45);
 }
 
 .country-select {
@@ -184,9 +194,21 @@ select.contact-input:focus {
     max-width: 350px;
     height: 180px;
   }
+  .contact-card-map {
+    width: 90vw;
+    max-width: 500px;
+    height: 260px;
+  }
   .contact-form {
     width: 90vw;
     max-width: 500px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-row {
+    flex-direction: column;
+    gap: 12px;
   }
 }
 
