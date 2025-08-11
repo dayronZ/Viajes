@@ -1,30 +1,16 @@
-/* Estilo global para el scroll suave */
 html {
+  margin: 0;
+  padding: 0;
   scroll-behavior: smooth;
-  scroll-padding-top: 60px; /* Ajusta si el navbar tapa parte del contenido */
+  scroll-padding-top: 60px; 
 }
 
 body {
+  padding: 0;
   margin: 0;
   font-family: sans-serif;
 }
 
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  z-index: 1000;
-}
-
-nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  padding: 10px 0;
-  margin: 0;
-}
 
 nav ul li {
   margin: 0 20px;
@@ -40,14 +26,259 @@ nav ul li a:hover {
   color: #007bff;
 }
 
-/* Estilo para las secciones */
+
+
 section {
   min-height: 100vh;
-  padding: 100px 20px 20px 20px; /* Espacio arriba para que no lo tape el nav */
-  display: flex;
+  padding: 100px 20px 20px 20px; 
   align-items: center;
   justify-content: center;
   font-size: 2rem;
+
   color: #fff;
   background-color: #e9dfdf;
+
+} 
+
+#seccion4 {
+  min-height: 100vh;
+  width: 100%;
+  padding: 80px 20px;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
+
+
+#seccion5 {
+  background-color: #99c68e;
+  min-height: 100vh;
+  width: 100%;
+  padding: 80px 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+
+
+.portfolio-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 36px;
+  color: #000;
+}
+
+.portfolio-filters {
+  margin-bottom: 60px;
+}
+
+.portfolio-filters .filter {
+  display: inline-block;
+  margin: 0 10px;
+  color: #666;
+  font-size: 14px;
+  cursor: pointer;
+  position: relative;
+}
+
+.portfolio-filters .filter:hover {
+  color: #000;
+  font-weight: bold;
+}
+
+.filter.active {
+  font-weight: bold;
+  color: #000;
+}
+
+.portfolio-grid {
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.portfolio-grid img {
+  width: 250px;         
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex: 1 1 250px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+.blog-section {
+  background-color: #c8e6c9;
+  padding: 60px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 2rem;
+  color: #fff;
+  background-color: #e9dfdf;
+
+  min-height: 100vh;
+}
+
+.blog-title {
+  font-size: 26px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+.blog-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 600px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.left-large-card {
+  height: 100%;
+}
+
+.right-small-cards {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 30px;
+  height: 100%;
+}
+
+.blog-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  display: flex;
+}
+
+.blog-card:hover {
+  transform: scale(1.03);
+}
+
+.blog-image-full {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.blog-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  z-index: 2;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.blog-overlay h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.blog-description {
+  font-size: 15px;
+  color: #b8b8b8;
+  margin-bottom: 10px;
+}
+
+.blog-meta {
+  font-size: 13px;
+  color: #ccc;
+}
+
+.blog-category {
+  color: #81c784;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .blog-grid-layout {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .right-small-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: auto;
+  }
+
+  .blog-card {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+
+
+
+
+#hero {
+  background-color: #007bff;
+}
+
+#about {
+  background-color: #28a745;
+}
+
+#services {
+  background-color: #ffc107;
+  color: #333;
+}
+
+#contact {
+  background-color: #dc3545;
+
+
+}
+
+
+
