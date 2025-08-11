@@ -54,6 +54,7 @@ const Seccion9 = () => {
       <h2 className="testimonials-title">Testimonios</h2>
       <h5 className='testimonials-title2'>Escucha lo que dicen nuestros increibles clientes</h5>
       <div className="testimonials-carousel-wrapper">
+
         <button
           className="carousel-arrow left"
           onClick={() => goTo((current - 1 + totalSlides) % totalSlides)}
