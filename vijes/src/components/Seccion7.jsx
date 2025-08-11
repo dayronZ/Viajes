@@ -64,7 +64,7 @@ const Seccion7 = () => {
 
   return (
     <section id="seccion7">
-      <h2 className="contact-title">CONTACTANOS</h2>
+      <h2 className="contact-title">Contactanos</h2>
       <div className="contact-container">
         <div className="contact-card-map">
           <MapContainer center={location} zoom={13} scrollWheelZoom={false} style={{ height: '100%', width: '100%' }}>

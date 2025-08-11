@@ -1,12 +1,12 @@
 .auth-container {
-   
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #ffffff;
     font-family: 'Arial', sans-serif;
     padding: 0 20px;
-    overflow: hidden;
+    /* Evitar que el menú nativo del select se recorte o se posicione mal en Safari */
+    overflow: visible;
   }
   
   .auth-card {
@@ -48,15 +48,51 @@
     row-gap: 12px;
   }
   
-  .auth-input {
+.auth-input {
     width: 100%;
     padding: 10px 14px;
     border: none;
     border-radius: 25px;
     background-color: #a9d6af;
-    font-size: 13px;
+  font-size: clamp(14px, 1.6vw, 16px);
+  min-height: 44px; /* tap target accesible en móvil */
     box-sizing: border-box;
   }
+/* Estilo nativo del select alineado al diseño */
+/* Select personalizado (dropdown controlado) */
+.custom-select { position: relative; }
+.select-trigger { text-align: left; padding-right: 2.4em; position: relative; }
+.select-trigger::after {
+  content: '';
+  position: absolute; right: 1em; top: 50%; transform: translateY(-50%);
+  width: 0.9em; height: 0.9em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-size: contain; background-repeat: no-repeat;
+}
+.select-menu {
+  position: absolute; left: 0; right: 0; top: calc(100% + 6px);
+  background: #3d3d3d; color: #fff; border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  padding: 8px; z-index: 1000;
+  max-height: 240px; overflow: auto;
+}
+.select-option { padding: 10px 12px; border-radius: 8px; cursor: pointer; }
+.select-option[aria-selected="true"], .select-option:hover { background: #4a4a4a; }
+
+/* Responsivo: reducir espaciamiento en tablet/móvil */
+@media (max-width: 1024px) {
+  .auth-form { column-gap: 40px; }
+}
+
+@media (max-width: 768px) {
+  .auth-input { padding: 12px 14px; }
+  select.auth-input { background-position: right 0.9em center; }
+}
+
+@media (max-width: 420px) {
+  .auth-form { row-gap: 10px; }
+  .auth-input { border-radius: 20px; }
+}
   
   .auth-input::placeholder {
     color: #555;

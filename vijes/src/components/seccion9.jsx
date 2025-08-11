@@ -51,15 +51,14 @@ const Seccion9 = () => {
 
   return (
     <section id="seccion9" className="testimonials-section">
-      <h2 className="testimonials-title">TESTIMONIOS</h2>
-      <h5 className='testimonials-title2'>Escucha lo que dicen nuestros increibles clientes </h5>
-      
-      <div className="testimonials-carousel-wrapper" style={{position: 'relative', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+      <h2 className="testimonials-title">Testimonios</h2>
+      <h5 className='testimonials-title2'>Escucha lo que dicen nuestros increibles clientes</h5>
+      <div className="testimonials-carousel-wrapper">
+
         <button
           className="carousel-arrow left"
           onClick={() => goTo((current - 1 + totalSlides) % totalSlides)}
           aria-label="Anterior"
-          style={{position: 'absolute', left: 'calc(50% - 410px)', top: '50%', transform: 'translateY(-50%)'}}
         >
           <span className="arrow-icon">{/* SVG flecha izquierda */}
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#fff"/><path d="M19.5 24L12.5 16L19.5 8" stroke="#222" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
@@ -84,7 +83,6 @@ const Seccion9 = () => {
           className="carousel-arrow right"
           onClick={() => goTo((current + 1) % totalSlides)}
           aria-label="Siguiente"
-          style={{position: 'absolute', right: 'calc(50% - 410px)', top: '50%', transform: 'translateY(-50%)'}}
         >
           <span className="arrow-icon">{/* SVG flecha derecha */}
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#fff"/><path d="M12.5 8L19.5 16L12.5 24" stroke="#222" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>

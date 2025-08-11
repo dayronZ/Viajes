@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './styles/register.css';
 
@@ -12,6 +12,14 @@ const RegisterForm = () => {
     securityAnswer: ''
   });
   const [message, setMessage] = useState('');
+  const [isSQOpen, setIsSQOpen] = useState(false);
+  const sqRef = useRef(null);
+
+  const SECURITY_QUESTIONS = [
+    '¿Cuál es el nombre de tu primera mascota?',
+    '¿En qué ciudad naciste?',
+    '¿Cuál es tu comida favorita?'
+  ];
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -19,6 +27,26 @@ const RegisterForm = () => {
     const { name, value } = e.target;
     setRegisterData(prev => ({ ...prev, [name]: value }));
   };
+
+  const handleSelectSQ = (value) => {
+    setRegisterData(prev => ({ ...prev, securityQuestion: value }));
+    setIsSQOpen(false);
+  };
+
+  useEffect(() => {
+    const onClickOutside = (e) => {
+      if (sqRef.current && !sqRef.current.contains(e.target)) {
+        setIsSQOpen(false);
+      }
+    };
+    const onEsc = (e) => { if (e.key === 'Escape') setIsSQOpen(false); };
+    document.addEventListener('mousedown', onClickOutside);
+    document.addEventListener('keydown', onEsc);
+    return () => {
+      document.removeEventListener('mousedown', onClickOutside);
+      document.removeEventListener('keydown', onEsc);
+    };
+  }, []);
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -125,14 +153,33 @@ const RegisterForm = () => {
 
 
             <h3 className="section-title">Pregunta de seguridad</h3>
-            <input
-              type="text"
-              name="securityQuestion"
-              value={registerData.securityQuestion}
-              onChange={handleChange}
-              className="auth-input"
-              required
-            />
+            <div className="custom-select" ref={sqRef}>
+              <button
+                type="button"
+                className="select-trigger auth-input"
+                onClick={() => setIsSQOpen(o => !o)}
+                aria-haspopup="listbox"
+                aria-expanded={isSQOpen}
+              >
+                {registerData.securityQuestion || 'Selecciona una pregunta...'}
+              </button>
+              {isSQOpen && (
+                <ul className="select-menu" role="listbox">
+                  {SECURITY_QUESTIONS.map((q) => (
+                    <li
+                      key={q}
+                      role="option"
+                      aria-selected={registerData.securityQuestion === q}
+                      className="select-option"
+                      onClick={() => handleSelectSQ(q)}
+                    >
+                      {q}
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <input type="hidden" name="securityQuestion" value={registerData.securityQuestion} />
+            </div>
             
             <h3 className="section-title">Respuesta de seguridad</h3>
             <input

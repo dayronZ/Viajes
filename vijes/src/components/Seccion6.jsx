@@ -5,8 +5,8 @@ const Seccion6 = () => {
   return (
     <section id="seccion6" className="seccion6-container">
       <div className="seccion6-content">
-        <h2 className="seccion6-title">PRECIO DE LOS PAQUETES </h2>
-        <h4 className="seccion6-subtitle2">Viaje Rsedondo</h4>
+        <h2 className="seccion6-title">Precio de los paquetes </h2>
+        <h4 className="seccion6-subtitle2">Viaje Redondo</h4>
         <div className="seccion6-stats">
           <div className="seccion6-stat-card">
             <div className="seccion6-stat-number">$8,663</div>
@@ -31,3 +31,4 @@ const Seccion6 = () => {
 };
 
 export default Seccion6;
+
