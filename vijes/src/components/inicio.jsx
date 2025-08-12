@@ -1,4 +1,4 @@
-
+import Swal from 'sweetalert2'
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -33,8 +33,9 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem("user");
     setUser(null);
-    navigate("/login");
+    navigate("/");
     setShowModal(false);
+    Swal.fire("Esperamos tenerte de regreso pronto!");
   };
 
   useEffect(() => {

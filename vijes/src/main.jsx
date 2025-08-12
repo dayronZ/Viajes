@@ -68,7 +68,7 @@ const App = () => (
   </BrowserRouter>
 );
 
-// Render
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
